@@ -1,4 +1,4 @@
-package za.ac.cput.petparlor.domain;
+package za.ac.cput.dogparlor.domain;
 
 public class CustomerAddress {
 
@@ -17,6 +17,14 @@ public class CustomerAddress {
 
     public int getAddressID() {
         return addressID;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerAddress{" +
+                "customerID=" + customerID +
+                ", addressID=" + addressID +
+                '}';
     }
 
     public static class Builder {
