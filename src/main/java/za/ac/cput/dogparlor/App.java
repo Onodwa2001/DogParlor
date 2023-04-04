@@ -1,4 +1,4 @@
-package za.ac.cput.petparlor;
+package za.ac.cput.dogparlor;
 
 /**
  * Hello world!
