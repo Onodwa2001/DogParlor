@@ -4,9 +4,9 @@ public class CustomerAddress {
 
     private int customerID, addressID;
 
-    public CustomerAddress() {}
+    private CustomerAddress() {}
 
-    public CustomerAddress(Builder builder) {
+    private CustomerAddress(Builder builder) {
         this.customerID = builder.customerID;
         this.addressID = builder.addressID;
     }
