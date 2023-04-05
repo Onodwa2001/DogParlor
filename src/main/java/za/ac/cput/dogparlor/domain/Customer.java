@@ -5,7 +5,7 @@
  */
 
 package za.ac.cput.dogparlor.domain;
-public class Customer {
+public class Customer extends Person {
     private int customerID;
 
     private Customer() {}
