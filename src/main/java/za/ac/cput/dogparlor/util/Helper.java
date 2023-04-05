@@ -14,4 +14,9 @@ public class Helper {
         return Pattern.compile(emailRegex).matcher(email).matches();
     }
 
+    public static boolean isValidString(String str){
+        Pattern pattern = Pattern.compile("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+        return (pattern.matcher(str).matches());
+    }
+
 }
