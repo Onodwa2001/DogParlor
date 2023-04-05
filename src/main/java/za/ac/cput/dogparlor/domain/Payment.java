@@ -14,22 +14,21 @@ public class Payment {
     public double getAmount(){
         return amount;
     }
-    public static class
-    PaymentBuilder{
+    public static class PaymentBuilder{
         private String paymentID;
         private int amount;
+        
+        public PaymentBuilder() {}
 
-        public PaymentBuilder
-        withPaymentID (String payementID){
+        public PaymentBuilder setPaymentID (String payementID){
             this.paymentID = payementID;
             return this;
         }
-        public PaymentBuilder
-        withAmount(int amount){
+        public PaymentBuilder setAmount(int amount){
             this.amount = amount;
             return this;
         }
-        public Payment build (){
+        public Payment build(){
             return new Payment(this);
         }
     }
