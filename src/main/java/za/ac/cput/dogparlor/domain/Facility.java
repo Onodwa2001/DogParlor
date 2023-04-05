@@ -1,9 +1,14 @@
+/*Facility.java
+  Entity for the Facility
+  Author: Karabo Magagula (220042292)
+  Date: 04 April 2023
+ */
 package za.ac.cput.dogparlor.domain;
 
 public class Facility {
     private int facilityId;
 
-    public Facility() {
+    private Facility() {
     }
 
     private Facility(Builder builder) {

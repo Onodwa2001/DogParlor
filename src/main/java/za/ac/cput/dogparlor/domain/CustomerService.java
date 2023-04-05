@@ -1,3 +1,8 @@
+/*CustomerService.java
+  Entity for the Customer Service
+  Author: Karabo Magagula (220042292)
+  Date: 04 April 2023
+ */
 package za.ac.cput.dogparlor.domain;
 
 import java.util.Objects;
@@ -6,7 +11,7 @@ public class CustomerService {
     private int customerId;
     private int serviceId;
 
-    public CustomerService() {}
+    private CustomerService() {}
 
     private CustomerService(Builder builder) {
         this.customerId = builder.customerId;

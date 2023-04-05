@@ -1,3 +1,8 @@
+/*Service.java
+  Entity for the Service
+  Author: Karabo Magagula (220042292)
+  Date: 04 April 2023
+ */
 package za.ac.cput.dogparlor.domain;
 
 import java.util.Objects;
@@ -10,7 +15,7 @@ public class Service {
     private String serviceDescription;
     private String servicePackage;
 
-    public Service() {}
+    private Service() {}
 
     private Service(Builder builder) {
         this.serviceId = builder.serviceId;
