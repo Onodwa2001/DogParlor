@@ -17,18 +17,19 @@ public class BookingPayment {
     public static class Builder{
         private int bookingID;
         private int paymentID;
+        
+        public Builder() {}
 
-        public Builder bookingID (int bookingID){
+        public Builder setBookingID(int bookingID){
             this.bookingID = bookingID;
             return this;
         }
-        public Builder paymentID (int paymentID){
+        public Builder setPaymentID(int paymentID){
             this.paymentID = paymentID;
             return this;
         }
-        public BookingPayment build (){
-            return new
-                    BookingPayment(this);
+        public BookingPayment build(){
+            return new BookingPayment(this);
         }
 
     }
