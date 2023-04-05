@@ -1,3 +1,3 @@
 # UML Diagram
 
-![Alt text](Main.png?raw=true "UML Diagram")
+![Alt text](MainUML.png?raw=true "UML Diagram")
