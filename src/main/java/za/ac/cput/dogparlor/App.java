@@ -1,7 +1,5 @@
 package za.ac.cput.dogparlor;
 
-import za.ac.cput.dogparlor.domain.CustomerAddress;
-
 /**
  * Hello world!
  *
