@@ -1,5 +1,7 @@
 package za.ac.cput.dogparlor;
 
+import java.util.UUID;
+
 /**
  * Hello world!
  *
