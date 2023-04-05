@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>za.ac.cput.petparlor</groupId>
-  <artifactId>PetParlor</artifactId>
+  <artifactId>DogParlor</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>PetParlor</name>
+  <name>DogParlor</name>
   <url>http://maven.apache.org</url>
 
   <properties>
