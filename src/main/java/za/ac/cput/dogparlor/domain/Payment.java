@@ -20,7 +20,7 @@ public class Payment {
         
         public PaymentBuilder() {}
 
-        public PaymentBuilder setPaymentID (String payementID){
+        public PaymentBuilder setPaymentID (int payementID){
             this.paymentID = payementID;
             return this;
         }
