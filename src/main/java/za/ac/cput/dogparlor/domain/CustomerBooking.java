@@ -49,7 +49,7 @@ public class CustomerBooking {
                 '}';
     }
 
-    static class Builder {
+    public static class Builder {
 
         private int customerID, bookingID;
 
