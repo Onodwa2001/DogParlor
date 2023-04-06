@@ -1,7 +1,7 @@
 package za.ac.cput.dogparlor.domain;
 
 import java.util.Date;
-
+import java.util.List;
 public class Booking {
     private int bookingID;
     private Date date;
@@ -10,13 +10,16 @@ public class Booking {
     private float total;
 
     private Booking() {}
-    private Booking (BookingBuilder builder){
+
+    private Booking(BookingBuilder builder){
         this.bookingID = builder.bookingID;
         this.date = builder.date;
         this.time = builder.time;
         this.service = builder.service;
         this.total = builder.total;
     }
+
+
     public int getBookingID (){
         return bookingID;
     }
@@ -26,13 +29,12 @@ public class Booking {
     public String getTime (){
         return time;
     }
-    public String getService(){
+    public String getServices(){
         return service;
     }
     public float getTotal (){
         return total;
     }
-
 
     public static class BookingBuilder {
         private int bookingID;
@@ -41,20 +43,21 @@ public class Booking {
         private String service;
         private float total;
 
+        public BookingBuilder() {}
+
         public BookingBuilder setBookingID(int bookingID){
             this.bookingID = bookingID ;
             return this;
         }
         public BookingBuilder setDate (Date date){
-            this.date =date;
+            this.date = date;
             return this;
         }
         public BookingBuilder setTime (String time){
             this.time = time;
             return this;
         }
-        public BookingBuilder setService (String service)
-        {
+        public BookingBuilder setServices (String services){
             this.service = service;
             return this;
         }
@@ -62,20 +65,10 @@ public class Booking {
             this.total = total;
             return this;
         }
-        public BookingBuilder copy(Booking booking){
-            this.bookingID = booking.bookingID;
-            this.date = booking.date;
-            this.time = booking.time;
-            this.service = booking.service;
-            this.total = booking.total;
-            return this;
-        }
-
-        public Booking buiLd (){
+        public Booking buiLd(){
             return new Booking(this);
         }
     }
 
 }
-
 
