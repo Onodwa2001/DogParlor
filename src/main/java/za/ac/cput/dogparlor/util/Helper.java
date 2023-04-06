@@ -14,4 +14,13 @@ public class Helper {
         return Pattern.compile(emailRegex).matcher(email).matches();
     }
 
+    public static boolean isValidCoordinate(String latlong) {
+        return (Float.parseFloat(latlong) < -180.0 || Float.parseFloat(latlong) > 180.0);
+    }
+
+    public static boolean isValidString(String str){
+        Pattern pattern = Pattern.compile("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+        return (pattern.matcher(str).matches());
+    }
+
 }
