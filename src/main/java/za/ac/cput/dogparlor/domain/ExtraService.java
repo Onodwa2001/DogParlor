@@ -11,7 +11,7 @@ public class ExtraService {
     private int extraId;
     private String extraServiceName;
 
-    public ExtraService() {
+    private ExtraService() {
     }
 
     private ExtraService(Builder builder) {

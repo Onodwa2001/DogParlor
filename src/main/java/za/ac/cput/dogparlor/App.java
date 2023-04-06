@@ -1,6 +1,6 @@
 package za.ac.cput.dogparlor;
 
-import za.ac.cput.dogparlor.domain.CustomerAddress;
+import java.util.UUID;
 
 /**
  * Hello world!
