@@ -3,9 +3,11 @@ package za.ac.cput.dogparlor.domain;
 import java.util.List;
 public class Booking {
     private final int bookingID;
-    private final int date;
-    private final int time;
-    private final List<String> service;
+
+    private final Date date;
+    private final String time;
+    private final String service;
+
     private final int total;
 
     private Booking (BookingBuilder builder){
@@ -57,7 +59,9 @@ public class Booking {
         }
 
         public BookingBuilder
-        setServices(List<String> services) {
+
+        setServices (String services)
+        {
             this.service = service;
             return this;
         }
