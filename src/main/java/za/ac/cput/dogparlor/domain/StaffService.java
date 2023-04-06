@@ -5,6 +5,8 @@
  */
 package za.ac.cput.dogparlor.domain;
 
+import java.util.Objects;
+
 public class StaffService {
     private int staffID;
     private int serviceID;
@@ -22,6 +24,20 @@ public class StaffService {
 
     public int getServiceID() {
         return serviceID;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StaffService that = (StaffService) o;
+        return staffID == that.staffID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(staffID);
     }
 
     public static class Builder{

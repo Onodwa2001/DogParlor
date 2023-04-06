@@ -6,6 +6,8 @@
 
 package za.ac.cput.dogparlor.domain;
 
+import java.util.Objects;
+
 public class Address {
     private int addressID;
     private String streetAddress;
@@ -47,6 +49,19 @@ public class Address {
         return country;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address that = (Address) o;
+        return addressID == that.addressID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(addressID);
+    }
     @Override
     public String toString() {
         return "Address{" +
