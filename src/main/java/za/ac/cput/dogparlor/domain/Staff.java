@@ -6,7 +6,7 @@
 
 package za.ac.cput.dogparlor.domain;
 
-public class Staff {
+public class Staff extends Person {
     private int staffID;
     private double salary;
     private String handleArea;
