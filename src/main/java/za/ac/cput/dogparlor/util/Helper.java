@@ -14,8 +14,4 @@ public class Helper {
         return Pattern.compile(emailRegex).matcher(email).matches();
     }
 
-    public static boolean isValidCoordinate(String latOrLong) {
-        return (Float.parseFloat(latOrLong) < -180 || Float.parseFloat(latOrLong) > 180);
-    }
-
 }
