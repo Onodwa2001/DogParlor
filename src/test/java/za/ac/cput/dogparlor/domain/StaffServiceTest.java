@@ -1,11 +1,12 @@
-package za.ac.cput.dogparlor.domain;
-
-import org.junit.jupiter.api.Test;
 /* StaffServiceTest.java
   Domain test case for StaffServiceTest entity
   Author: Byron Young (218155077)
   Date:07 April 2023
  */
+package za.ac.cput.dogparlor.domain;
+
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StaffServiceTest {
