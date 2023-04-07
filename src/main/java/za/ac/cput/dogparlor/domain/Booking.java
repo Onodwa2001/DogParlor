@@ -29,7 +29,7 @@ public class Booking {
     public String getTime (){
         return time;
     }
-    public String getServices(){
+    public String getService(){
         return service;
     }
     public float getTotal (){
@@ -57,7 +57,7 @@ public class Booking {
             this.time = time;
             return this;
         }
-        public BookingBuilder setServices (String services){
+        public BookingBuilder setService (String service){
             this.service = service;
             return this;
         }
@@ -65,7 +65,7 @@ public class Booking {
             this.total = total;
             return this;
         }
-        public Booking buiLd(){
+        public Booking build(){
             return new Booking(this);
         }
     }
