@@ -6,6 +6,7 @@
 
 package za.ac.cput.dogparlor.factory;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.dogparlor.domain.ServicePackage;
@@ -42,6 +43,12 @@ class ServicePackageFactoryTest {
     void timeoutTest() throws InterruptedException{
         Thread.sleep(500);
         System.out.println("Test will be passed within this duration");
+    }
+
+    @Ignore
+    @Test
+    public void ignoreThisTest() {
+        assertNotNull(package1);
     }
 
 }
