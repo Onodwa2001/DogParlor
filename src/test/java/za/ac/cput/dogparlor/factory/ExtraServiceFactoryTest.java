@@ -6,6 +6,7 @@
 
 package za.ac.cput.dogparlor.factory;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.dogparlor.domain.ExtraService;
@@ -46,4 +47,9 @@ class ExtraServiceFactoryTest {
         System.out.println("Test will be passed within this duration");
     }
 
+    @Ignore
+    @Test
+    public void ignoreThisTest() {
+        assertNotNull(extraService1);
+    }
 }
