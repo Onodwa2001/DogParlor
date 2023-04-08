@@ -6,7 +6,11 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+<<<<<<< HEAD
 public class BookingRepository implements IBookingRepository {
+=======
+public class BookingRepository {
+>>>>>>> 74a49f4d495c2fb5363f93c6d1398c3dde6b7f23
     private static BookingRepository repository = null;
     private Set<Booking> bookingDB = null;
 
