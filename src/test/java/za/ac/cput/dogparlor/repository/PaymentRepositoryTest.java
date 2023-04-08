@@ -20,7 +20,7 @@ class PaymentRepositoryTest {
     void a_create() {
         Payment createdPayment = repository.create(payment);
         System.out.println(createdPayment);
-        assertEquals(payment.getAmount(), createdPayment.getAmount());
+        assertEquals(payment.getPaymentID(), createdPayment.getPaymentID());
     }
 
     @Test
@@ -49,7 +49,7 @@ class PaymentRepositoryTest {
 
     @Test
     void d_getAllPayments() {
-        Set<Payment> set = repository.getAllPayments();
+        Set<Payment> set = repository.getAllPayment();
         System.out.println(set);
         assertNotNull(set);
     }
