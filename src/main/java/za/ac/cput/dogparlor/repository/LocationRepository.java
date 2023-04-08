@@ -1,5 +1,12 @@
 package za.ac.cput.dogparlor.repository;
 
+/*
+     LocationRepository.java
+     Repository for the Location
+     Author: Onodwa Siyotula (220087016)
+     Date: 05 April 2023
+ */
+
 import za.ac.cput.dogparlor.domain.Location;
 
 import java.util.HashSet;
