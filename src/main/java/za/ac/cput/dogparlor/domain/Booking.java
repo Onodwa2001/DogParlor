@@ -1,88 +1,74 @@
 package za.ac.cput.dogparlor.domain;
 
+import java.util.Date;
 import java.util.List;
 public class Booking {
-    private final int bookingID;
+    private int bookingID;
+    private Date date;
+    private String time;
+    private String service;
+    private float total;
 
-    private final Date date;
-    private final String time;
-    private final String service;
+    private Booking() {}
 
-    private final int total;
-
-    private Booking (BookingBuilder builder){
+    private Booking(BookingBuilder builder){
         this.bookingID = builder.bookingID;
         this.date = builder.date;
         this.time = builder.time;
         this.service = builder.service;
         this.total = builder.total;
     }
+
+
     public int getBookingID (){
         return bookingID;
     }
-    public int getDate (){
+    public Date getDate (){
         return date;
     }
-    public int getTime (){
+    public String getTime (){
         return time;
     }
-    public List<String>getServices(){
+    public String getService(){
         return service;
     }
-    public int getTotal (){
+    public float getTotal (){
         return total;
     }
-    public static class
-    BookingBuilder {
-        private int bookingID;
-        private int date;
-        private int time;
-        private List<String> service;
-        private int total;
 
-        public BookingBuilder
-        setBookingID(int bookingID) {
-            this.bookingID = bookingID;
+    public static class BookingBuilder {
+        private int bookingID;
+        private Date date;
+        private String time;
+        private String service;
+        private float total;
+
+        public BookingBuilder() {}
+
+        public BookingBuilder setBookingID(int bookingID){
+            this.bookingID = bookingID ;
             return this;
         }
-
-        public BookingBuilder
-        setDate(int date) {
+        public BookingBuilder setDate (Date date){
             this.date = date;
             return this;
         }
-
-        public BookingBuilder
-        setTime(int time) {
+        public BookingBuilder setTime (String time){
             this.time = time;
             return this;
         }
-
-        public BookingBuilder
-
-        setServices (String services)
-        {
+        public BookingBuilder setService (String service){
             this.service = service;
             return this;
         }
-
-        public BookingBuilder
-        setTotal(int total) {
+        public BookingBuilder setTotal (float total){
             this.total = total;
             return this;
         }
-
-        public Booking buiLd() {
+        public Booking build(){
             return new Booking(this);
         }
-
-        public Booking build() {
-            return null;
-        }
-    }
     }
 
-
-
-
+}
 
