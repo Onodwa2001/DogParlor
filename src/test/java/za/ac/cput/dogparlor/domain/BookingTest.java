@@ -15,6 +15,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookingTest {
+    @Test
     void testObjectIdentity() {
 
         Booking booking = new Booking.BookingBuilder()

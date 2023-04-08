@@ -1,10 +1,6 @@
 package za.ac.cput.dogparlor.repository;
 
-
-
 import za.ac.cput.dogparlor.domain.Payment;
-
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -69,7 +65,7 @@ public class PaymentRepository implements IPaymentRepository {
     }
 
     @Override
-    public Set<Payment> getAllLocations() {
+    public Set<Payment> getAllPayment() {
         return DB;
     }
 }

@@ -4,7 +4,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.Timeout;
 import za.ac.cput.dogparlor.domain.BookingPayment;
-import za.ac.cput.dogparlor.domain.Payment;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,7 +43,7 @@ class BookingPaymentFactoryTest {
 
         try{
             Thread.sleep(300);
-            assertEquals(1045,BookingPayment.getBookingID());
+            assertEquals(02,Bp.getBookingID());
         }catch (InterruptedException ie){
             ie.printStackTrace();
         }

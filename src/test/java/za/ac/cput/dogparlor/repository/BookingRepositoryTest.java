@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BookingRepositoryTest {
 
     private static final BookingRepository repository = BookingRepository.getRepository();
-    private static final Booking booking = BookingFactory.createBooking(89,90);
+    private static final Booking booking = BookingFactory.createBooking(4234 , new Date() , new Time(new Date().getTime()).toString(),"Wash , Groom and Dip",2500);
 
     @Test
     void a_create() {
@@ -46,7 +46,7 @@ public class BookingRepositoryTest {
 
     @Test
     void e_delete() {
-        Booking deleted = repository.delete(booking.getBookingID());
+        Booking deleted = repository.delete(booking);
         System.out.println(deleted);
         assertNotNull(deleted);
     }
