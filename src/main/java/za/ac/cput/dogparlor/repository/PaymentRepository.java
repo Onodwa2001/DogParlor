@@ -1,7 +1,5 @@
 package za.ac.cput.dogparlor.repository;
 
-
-
 import za.ac.cput.dogparlor.domain.Payment;
 
 
@@ -69,7 +67,7 @@ public class PaymentRepository implements IPaymentRepository {
     }
 
     @Override
-    public Set<Payment> getAllLocations() {
+    public Set<Payment> getAllPayments() {
         return DB;
     }
 }

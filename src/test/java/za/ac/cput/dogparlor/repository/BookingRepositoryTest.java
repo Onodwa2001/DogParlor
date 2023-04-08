@@ -16,7 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BookingRepositoryTest {
 
     private static final BookingRepository repository = BookingRepository.getRepository();
-    private static final Booking booking = BookingFactory.createBooking(89,90);
+    private static final Booking booking = BookingFactory.createBooking(89, new Date(),
+            new Time(new Date().getTime()).toString(), "Pampering", 250);
 
     @Test
     void a_create() {
@@ -38,7 +39,7 @@ public class BookingRepositoryTest {
                 .setBookingID(4234)
                 .setDate(new Date())
                 .setTime(new Time(new Date().getTime()).toString())
-                .setService("Pampering")
+                .setService("Grooming")
                 .build();
         System.out.println(updated);
         assertNotNull(repository.update(updated));
@@ -46,7 +47,7 @@ public class BookingRepositoryTest {
 
     @Test
     void e_delete() {
-        Booking deleted = repository.delete(booking.getBookingID());
+        Booking deleted = repository.delete(booking);
         System.out.println(deleted);
         assertNotNull(deleted);
     }
