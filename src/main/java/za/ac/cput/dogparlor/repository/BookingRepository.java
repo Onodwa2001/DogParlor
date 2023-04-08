@@ -6,11 +6,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-<<<<<<< HEAD
 public class BookingRepository implements IBookingRepository {
-=======
-public class BookingRepository {
->>>>>>> 74a49f4d495c2fb5363f93c6d1398c3dde6b7f23
     private static BookingRepository repository = null;
     private Set<Booking> bookingDB = null;
 
@@ -26,7 +22,8 @@ public class BookingRepository {
         return repository;
     }
 
-    public Booking create (Booking booking){
+    @Override
+    public Booking create(Booking booking){
         boolean success = bookingDB.add(booking);
 
         if (!success)
@@ -34,6 +31,8 @@ public class BookingRepository {
 
         return booking;
     }
+
+    @Override
     public Booking read(Integer id){
         return bookingDB.stream()
                 .filter(e -> e.getBookingID() == id)
@@ -41,6 +40,7 @@ public class BookingRepository {
                 .orElse(null);
     }
 
+    @Override
     public Booking update(Booking booking){
         Booking oldBooking = read(booking.getBookingID());
 
@@ -52,14 +52,22 @@ public class BookingRepository {
 
         return null;
     }
-    public Booking delete(int id){
-        Booking booking = read(id);
 
-        if (booking != null) {
+    @Override
+    public Booking delete(Booking booking){
+        Booking readBooking = read(booking.getBookingID());
+
+        if (readBooking != null) {
             bookingDB.remove(booking);
             return booking;
         }
 
         return null;
     }
+
+    @Override
+    public Set<Booking> getAllBookings() {
+        return bookingDB;
+    }
+
 }

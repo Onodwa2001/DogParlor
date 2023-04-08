@@ -1,9 +1,5 @@
 package za.ac.cput.dogparlor.repository;
 
-<<<<<<< HEAD
-import za.ac.cput.dogparlor.domain.Booking;
-=======
->>>>>>> 74a49f4d495c2fb5363f93c6d1398c3dde6b7f23
 import za.ac.cput.dogparlor.domain.BookingPayment;
 
 
@@ -48,34 +44,21 @@ public class BookingPaymentRepository implements IBookingPaymentRepository {
 
         return null;
     }
-<<<<<<< HEAD
+
     public BookingPayment delete(BookingPayment bookingPayment){
         BookingPayment bookingPaymentFound = read(bookingPayment.getBookingID());
 
         if (bookingPaymentFound != null) {
             BookingPaymentDB.remove(bookingPaymentFound);
             return bookingPaymentFound;
-=======
-    public BookingPayment delete(int paymentID){
-        BookingPayment bookingPayment = read(paymentID);
-
-        if (bookingPayment != null) {
-            BookingPaymentDB.remove(bookingPayment);
-            return bookingPayment;
->>>>>>> 74a49f4d495c2fb5363f93c6d1398c3dde6b7f23
         }
 
         return null;
     }
-<<<<<<< HEAD
 
 
     @Override
     public Set<BookingPayment> getAllBookingPayments() {
-        return null;
+        return BookingPaymentDB;
     }
-=======
->>>>>>> 74a49f4d495c2fb5363f93c6d1398c3dde6b7f23
 }
-
-
