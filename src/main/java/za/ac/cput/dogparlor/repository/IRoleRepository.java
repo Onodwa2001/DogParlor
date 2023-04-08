@@ -10,7 +10,7 @@ import za.ac.cput.dogparlor.domain.Role;
 
 import java.util.Set;
 
-public interface IRoleRepository extends IRespository<Role,Integer>{
+public interface IRoleRepository extends IRepository<Role,Integer>{
     Set<Role> getAll();
 
 }

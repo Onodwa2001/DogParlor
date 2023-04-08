@@ -10,7 +10,7 @@ import za.ac.cput.dogparlor.domain.ServicePackage;
 
 import java.util.Set;
 
-public interface IServicePackageRepository extends IRespository<ServicePackage,Integer>{
+public interface IServicePackageRepository extends IRepository<ServicePackage,Integer>{
 
     Set<ServicePackage> getAll();
 }

@@ -9,6 +9,6 @@ import za.ac.cput.dogparlor.domain.ExtraService;
 
 import java.util.Set;
 
-public interface IExtraServiceRepository extends IRespository<ExtraService,Integer> {
+public interface IExtraServiceRepository extends IRepository<ExtraService,Integer> {
     Set<ExtraService> getAll();
 }
