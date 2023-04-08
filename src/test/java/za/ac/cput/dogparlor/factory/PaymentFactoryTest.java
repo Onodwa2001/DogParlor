@@ -14,6 +14,7 @@ import za.ac.cput.dogparlor.domain.Payment;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PaymentFactoryTest {
+
     @Test
     public void testObject() {
         Payment payment = PaymentFactory.createPayment(251 , 5000);
@@ -22,22 +23,27 @@ class PaymentFactoryTest {
 
     @Test
     public void objectEquality() {
+
         Payment payment = PaymentFactory.createPayment(251 , 5000);
         Payment payment2 = PaymentFactory.createPayment(251 , 5000);
         assertEquals(payment, payment2);
+
     }
 
     @Test
     public void objectIdentity() {
+
         Payment payment = PaymentFactory.createPayment(251 , 5000);
         // test should fail if you create a new instance but with same values
         // to make test pass, we create a reference variable that points to the same object in memory
         Payment payment2 = payment;
         assertSame(payment, payment2);
+
     }
 
     @Test
     public void failingTest() {
+
         Payment payment = PaymentFactory.createPayment(251 , 5000);
         Payment payment2 = PaymentFactory.createPayment(251 , 5000);
         assertSame(payment, payment2);

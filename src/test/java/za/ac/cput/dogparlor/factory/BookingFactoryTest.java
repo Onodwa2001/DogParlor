@@ -28,15 +28,18 @@ class BookingFactoryTest {
         Booking booking = BookingFactory.createBooking(251 , new Date() , new Time(new Date().getTime()).toString(),"Wash , Groom and Dip",2500);
         Booking booking2 = BookingFactory.createBooking(251 , new Date() , new Time(new Date().getTime()).toString(),"Wash , Groom and Dip",2500);
         assertEquals(booking, booking2);
+
     }
 
     @Test
     public void objectIdentity() {
+    
         Booking booking = BookingFactory.createBooking(251 , new Date() , new Time(new Date().getTime()).toString(),"Wash , Groom and Dip",2500);
         // test should fail if you create a new instance but with same values
         // to make test pass, we create a reference variable that points to the same object in memory
         Booking booking2 = booking;
         assertSame(booking, booking2);
+
     }
 
     @Test
@@ -67,3 +70,4 @@ class BookingFactoryTest {
         assertNotNull(booking);
     }
 }
+
