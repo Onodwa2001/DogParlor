@@ -1,7 +1,13 @@
+/* Payment.java
+   Entity for the Address
+   Author: Uthimna Sisipho Rubushe (221044329)
+   Date:05 April 2023
+ */
 package za.ac.cput.dogparlor.domain;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Objects;
+
 public class Booking {
     private int bookingID;
     private Date date;
@@ -34,6 +40,18 @@ public class Booking {
     }
     public float getTotal (){
         return total;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking that = (Booking) o;
+        return bookingID == that.bookingID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookingID);
     }
 
     public static class BookingBuilder {
