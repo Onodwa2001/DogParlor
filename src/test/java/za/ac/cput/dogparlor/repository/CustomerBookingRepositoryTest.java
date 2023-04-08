@@ -1,5 +1,12 @@
 package za.ac.cput.dogparlor.repository;
 
+/*
+     CustomerBookingRepository.java
+     Repository for the CustomerBooking
+     Author: Onodwa Siyotula (220087016)
+     Date: 08 April 2023
+ */
+
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;

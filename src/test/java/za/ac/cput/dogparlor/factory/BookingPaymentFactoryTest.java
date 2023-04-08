@@ -8,7 +8,7 @@ import za.ac.cput.dogparlor.domain.BookingPayment;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BookingPaymentFactoryTest {
+public class BookingPaymentFactoryTest {
 
     @Test
     public void testObject (){

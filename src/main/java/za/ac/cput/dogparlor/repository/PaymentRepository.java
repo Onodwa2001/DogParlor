@@ -34,7 +34,7 @@ public class PaymentRepository implements IPaymentRepository {
     @Override
     public Payment read(Integer id) {
         return DB.stream()
-                .filter( Payment -> Payment.getAmount() == id )
+                .filter( Payment -> Payment.getPaymentID() == id )
                 .findAny()
                 .orElse(null);
     }

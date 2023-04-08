@@ -49,7 +49,7 @@ class PaymentRepositoryTest {
 
     @Test
     void d_getAllPayments() {
-        Set<Payment> set = repository.getAllPayment();
+        Set<Payment> set = repository.getAllPayments();
         System.out.println(set);
         assertNotNull(set);
     }

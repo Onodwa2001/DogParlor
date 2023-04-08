@@ -1,5 +1,12 @@
 package za.ac.cput.dogparlor.repository;
 
+/*
+     LocationRepository.java
+     Repository for the Location
+     Author: Onodwa Siyotula (220087016)
+     Date: 08 April 2023
+ */
+
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
