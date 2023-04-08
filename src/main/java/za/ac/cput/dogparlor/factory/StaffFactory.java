@@ -21,7 +21,6 @@ public class StaffFactory {
         if (!Helper.isValidString(handleArea))
             return null;
 
-
         return new Staff.Builder().setStaffID(staffID)
                 .setSalary(salary)
                 .setHandleArea(handleArea)
