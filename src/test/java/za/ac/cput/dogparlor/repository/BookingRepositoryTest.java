@@ -38,7 +38,7 @@ public class BookingRepositoryTest {
                 .setBookingID(4234)
                 .setDate(new Date())
                 .setTime(new Time(new Date().getTime()).toString())
-                .setService("Pampering")
+                .setService("Grooming")
                 .build();
         System.out.println(updated);
         assertNotNull(repository.update(updated));

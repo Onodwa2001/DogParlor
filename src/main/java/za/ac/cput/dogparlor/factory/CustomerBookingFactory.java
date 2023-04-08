@@ -1,5 +1,12 @@
 package za.ac.cput.dogparlor.factory;
 
+/*
+     CustomerBooking.java
+     Factory for the CustomerBooking
+     Author: Onodwa Siyotula (220087016)
+     Date: 05 April 2023
+ */
+
 import za.ac.cput.dogparlor.domain.CustomerBooking;
 
 public class CustomerBookingFactory {

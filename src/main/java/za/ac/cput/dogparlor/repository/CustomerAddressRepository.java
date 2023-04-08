@@ -1,5 +1,12 @@
 package za.ac.cput.dogparlor.repository;
 
+/*
+     CustomerAddressRepository.java
+     Repository for the CustomerAddress
+     Author: Onodwa Siyotula (220087016)
+     Date: 05 April 2023
+ */
+
 import za.ac.cput.dogparlor.domain.CustomerAddress;
 
 import java.util.HashSet;

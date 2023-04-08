@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class PaymentRepositoryTest {
 
-    private static final PaymentRepository repository =PaymentRepository.getPaymentRepository();
-    private static final Payment payment = PaymentFactory.createPayment(8839,2331);
+    private static final PaymentRepository repository = PaymentRepository.getPaymentRepository();
+    private static final Payment payment = PaymentFactory.createPayment(23,78);
 
     @Test
     void a_create() {

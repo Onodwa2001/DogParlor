@@ -65,7 +65,7 @@ public class PaymentRepository implements IPaymentRepository {
     }
 
     @Override
-    public Set<Payment> getAllPayment() {
+    public Set<Payment> getAllPayments() {
         return DB;
     }
 }
