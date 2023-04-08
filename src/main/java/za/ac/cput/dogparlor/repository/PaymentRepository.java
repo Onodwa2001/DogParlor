@@ -1,40 +1,77 @@
 package za.ac.cput.dogparlor.repository;
 
 
+
 import za.ac.cput.dogparlor.domain.Payment;
 
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class PaymentRepository {
+public class PaymentRepository implements IPaymentRepository {
 
-    private static PaymentRepository repository = null;
-    private Set<Payment> paymentDB = null;
+    static PaymentRepository paymentRepository = null;
+    Set<Payment> DB = null;
 
-
-
-    public PaymentRepository(){
-        paymentDB = new HashSet<Payment>();
+    private PaymentRepository() {
+        DB = new HashSet<>();
     }
-    public static PaymentRepository getRepository(){
-        if (repository == null){
-            repository = new PaymentRepository();
+
+    public static PaymentRepository  getPaymentRepository() {
+        if (paymentRepository == null) {
+            paymentRepository = new PaymentRepository();
         }
-        return repository;
+        return paymentRepository;
     }
-    public void create (String paymentID ,Double amount){
 
+    @Override
+    public Payment create(Payment payment) {
+        boolean success = DB.add(payment);
+
+        if (!success) {
+            return null;
+        }
+
+        return payment;
     }
-    public void read(){
 
+    @Override
+    public Payment read(Integer id) {
+        return DB.stream()
+                .filter( Payment -> Payment.getAmount() == id )
+                .findAny()
+                .orElse(null);
     }
-    public void update(){
 
+    @Override
+    public Payment update(Payment payment) {
+        Payment oldPayment = read(payment.getPaymentID());
+
+        if (oldPayment != null) {
+            DB.remove(oldPayment);
+            DB.add(payment);
+            return payment;
+        }
+
+        return null;
     }
-    public boolean delete (Double amount){
-        boolean success = true;
 
-        return success;
+    @Override
+    public Payment delete(Payment payment) {
+        Payment oldPayment = read(payment.getPaymentID());
+
+        if (oldPayment != null) {
+            DB.remove(oldPayment);
+            return oldPayment;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Set<Payment> getAllLocations() {
+        return DB;
     }
 }
+
+

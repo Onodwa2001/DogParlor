@@ -6,11 +6,9 @@ import za.ac.cput.dogparlor.domain.BookingPayment;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BookingPaymentRepository {
+public class BookingPaymentRepository implements IBookingPaymentRepository {
     private static BookingPaymentRepository repository = null;
     private Set<BookingPayment> BookingPaymentDB = null;
-
-
 
     public BookingPaymentRepository(){
         BookingPaymentDB = new HashSet<BookingPayment>();
@@ -21,19 +19,40 @@ public class BookingPaymentRepository {
         }
         return repository;
     }
-    public void create (int bookingID, int paymentID){
+    public BookingPayment create(BookingPayment bookingPayment){
+        boolean success = BookingPaymentDB.add(bookingPayment);
 
+        if (!success)
+            return null;
+
+        return bookingPayment;
     }
-    public void read(){
-
+    public BookingPayment read(Integer id){
+        return BookingPaymentDB.stream()
+                .filter(e -> e.getPaymentID() == id || e.getBookingID() == id)
+                .findAny()
+                .orElse(null);
     }
-    public void update(){
+    public BookingPayment update(BookingPayment bookingPayment){
+        BookingPayment oldBookingPayment = read(bookingPayment.getPaymentID());
 
+        if (oldBookingPayment != null) {
+            BookingPaymentDB.remove(oldBookingPayment);
+            BookingPaymentDB.add(bookingPayment);
+            return bookingPayment;
+        }
+
+        return null;
     }
-    public boolean delete (int paymentID){
-        boolean success = true;
+    public BookingPayment delete(int paymentID){
+        BookingPayment bookingPayment = read(paymentID);
 
-        return success;
+        if (bookingPayment != null) {
+            BookingPaymentDB.remove(bookingPayment);
+            return bookingPayment;
+        }
+
+        return null;
     }
 }
 

@@ -11,29 +11,51 @@ public class BookingRepository {
     private Set<Booking> bookingDB = null;
 
 
-
     public BookingRepository(){
         bookingDB = new HashSet<Booking>();
     }
+
     public static BookingRepository getRepository(){
         if (repository == null){
             repository = new BookingRepository();
         }
         return repository;
     }
-    public void create (int bookingID, Date date,String time,String service,int total){
 
+    public Booking create (Booking booking){
+        boolean success = bookingDB.add(booking);
+
+        if (!success)
+            return null;
+
+        return booking;
     }
-    public void read(){
-
+    public Booking read(Integer id){
+        return bookingDB.stream()
+                .filter(e -> e.getBookingID() == id)
+                .findAny()
+                .orElse(null);
     }
-    public void update(){
 
+    public Booking update(Booking booking){
+        Booking oldBooking = read(booking.getBookingID());
+
+        if (oldBooking != null) {
+            bookingDB.remove(oldBooking);
+            bookingDB.add(booking);
+            return booking;
+        }
+
+        return null;
     }
-    public boolean delete (int total){
-        boolean success = true;
+    public Booking delete(int id){
+        Booking booking = read(id);
 
-        return success;
+        if (booking != null) {
+            bookingDB.remove(booking);
+            return booking;
+        }
+
+        return null;
     }
 }
-
