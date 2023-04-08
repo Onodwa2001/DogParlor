@@ -1,8 +1,8 @@
 package za.ac.cput.dogparlor.factory;
 
 /*
-     CustomerAddress.java
-     Factory for the CustomerAddress
+     LocationFactory.java
+     Factory for the Location
      Author: Onodwa Siyotula (220087016)
      Date: 08 April 2023
  */
