@@ -52,9 +52,9 @@ class CustomerAddressRepositoryTest {
 
     @Test
     void e_delete() {
-        CustomerAddress deleted = repository.delete(customerAddress);
+        boolean deleted = repository.delete(customerAddress.getCustomerID());
         System.out.println(deleted);
-        assertNotNull(deleted);
+        assertTrue(deleted);
     }
 
     @Test

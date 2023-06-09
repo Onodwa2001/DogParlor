@@ -51,10 +51,9 @@ class FacilityLocationRepositoryTest {
 
     @Test
     void e_delete() {
-        FacilityLocation deleted = repository.delete(facilityLocation);
+        boolean deleted = repository.delete(facilityLocation.getFacilityID());
         System.out.println(deleted);
         assertNotNull(deleted);
-
     }
 
     @Test

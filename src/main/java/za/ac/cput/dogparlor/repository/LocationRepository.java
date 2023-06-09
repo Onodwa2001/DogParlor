@@ -61,15 +61,13 @@ public class LocationRepository implements ILocationRepository {
     }
 
     @Override
-    public Location delete(Location location) {
-        Location oldLocation = read(location.getLocationID());
+    public boolean delete(Integer id) {
+        Location oldLocation = read(id);
 
-        if (oldLocation != null) {
-            DB.remove(oldLocation);
-            return oldLocation;
-        }
+        if (oldLocation == null)
+            return false;
 
-        return null;
+        return DB.remove(oldLocation);
     }
 
     @Override

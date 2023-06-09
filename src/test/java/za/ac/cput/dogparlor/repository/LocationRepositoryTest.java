@@ -52,7 +52,7 @@ class LocationRepositoryTest {
 
     @Test
     void e_delete() {
-        Location deleted = repository.delete(location);
+        boolean deleted = repository.delete(location.getLocationID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }

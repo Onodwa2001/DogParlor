@@ -60,15 +60,13 @@ public class CustomerAddressRepository implements ICustomerAddressRepository {
     }
 
     @Override
-    public CustomerAddress delete(CustomerAddress customerAddress) {
-        CustomerAddress oldCustomerAddress = read(customerAddress.getCustomerID());
+    public boolean delete(Integer id) {
+        CustomerAddress foundCustomerAddress = read(id);
 
-        if (oldCustomerAddress != null) {
-            DB.remove(oldCustomerAddress);
-            return oldCustomerAddress;
-        }
+        if (foundCustomerAddress == null)
+            return false;
 
-        return null;
+        return DB.remove(foundCustomerAddress);
     }
 
     @Override

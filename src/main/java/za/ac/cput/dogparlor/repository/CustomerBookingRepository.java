@@ -59,15 +59,13 @@ public class CustomerBookingRepository implements ICustomerBookingRepository {
     }
 
     @Override
-    public CustomerBooking delete(CustomerBooking customerBooking) {
-        CustomerBooking oldCustomerBooking = read(customerBooking.getCustomerID());
+    public boolean delete(Integer id) {
+        CustomerBooking oldCustomerBooking = read(id);
 
-        if (oldCustomerBooking != null) {
-            DB.remove(oldCustomerBooking);
-            return oldCustomerBooking;
-        }
+        if (oldCustomerBooking == null)
+            return false;
 
-        return null;
+        return DB.remove(oldCustomerBooking);
     }
 
     @Override

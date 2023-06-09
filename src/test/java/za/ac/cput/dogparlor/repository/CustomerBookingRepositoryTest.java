@@ -53,7 +53,7 @@ class CustomerBookingRepositoryTest {
 
     @Test
     void e_delete() {
-        CustomerBooking deleted = repository.delete(customerBooking);
+        boolean deleted = repository.delete(customerBooking.getCustomerID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }
