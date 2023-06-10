@@ -49,13 +49,18 @@ public class CustomerBookingRepository implements ICustomerBookingRepository {
     public CustomerBooking update(CustomerBooking customerBooking) {
         CustomerBooking oldCustomerBooking = read(customerBooking.getCustomerID());
 
-        if (oldCustomerBooking != null) {
-            DB.remove(oldCustomerBooking);
-            DB.add(customerBooking);
-            return customerBooking;
-        }
+        if (oldCustomerBooking == null)
+            return null;
 
-        return null;
+        boolean successfulDelete = DB.remove(oldCustomerBooking);
+        if (!successfulDelete)
+            return null;
+
+        boolean successfulAdd = DB.add(customerBooking);
+        if (!successfulAdd)
+            return null;
+
+        return customerBooking;
     }
 
     @Override

@@ -45,8 +45,9 @@ class CustomerAddressRepositoryTest {
                         .setAddressID(5564)
                         .build();
 
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+        CustomerAddress updatedCustAddress = repository.update(updated);
+        assertNotNull(updatedCustAddress);
+        System.out.println("Updated: " + updatedCustAddress);
     }
 
     @Test

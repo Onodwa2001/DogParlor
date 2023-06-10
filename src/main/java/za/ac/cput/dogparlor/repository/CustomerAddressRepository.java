@@ -50,13 +50,18 @@ public class CustomerAddressRepository implements ICustomerAddressRepository {
     public CustomerAddress update(CustomerAddress customerAddress) {
         CustomerAddress oldCustomerAddress = read(customerAddress.getCustomerID());
 
-        if (oldCustomerAddress != null) {
-            DB.remove(oldCustomerAddress);
-            DB.add(customerAddress);
-            return customerAddress;
-        }
+        if (oldCustomerAddress == null)
+            return null;
 
-        return null;
+        boolean successfulDelete = DB.remove(oldCustomerAddress);
+        if (!successfulDelete)
+            return null;
+
+        boolean successfulAdd = DB.add(customerAddress);
+        if (!successfulAdd)
+            return null;
+
+        return customerAddress;
     }
 
     @Override

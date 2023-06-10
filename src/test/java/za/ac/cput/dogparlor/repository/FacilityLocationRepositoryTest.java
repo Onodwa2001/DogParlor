@@ -44,8 +44,9 @@ class FacilityLocationRepositoryTest {
                 .setFacilityID(5543)
                 .build();
 
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+        FacilityLocation facilityLocation1 = repository.update(updated);
+        assertNotNull(facilityLocation1);
+        System.out.println("Updated: " + facilityLocation1);
     }
 
     @Test

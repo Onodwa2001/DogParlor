@@ -49,13 +49,18 @@ public class FacilityLocationRepository implements IFacilityLocationRepository {
     public FacilityLocation update(FacilityLocation facilityLocation) {
         FacilityLocation oldFacilityLocation1 = read(facilityLocation.getFacilityID());
 
-        if (oldFacilityLocation1 != null) {
-            DB.remove(oldFacilityLocation1);
-            DB.add(facilityLocation);
-            return facilityLocation;
-        }
+        if (oldFacilityLocation1 == null)
+            return null;
 
-        return null;
+        boolean successfulDelete = DB.remove(oldFacilityLocation1);
+        if (!successfulDelete)
+            return null;
+
+        boolean successfulAdd = DB.add(facilityLocation);
+        if (!successfulAdd)
+            return null;
+
+        return facilityLocation;
     }
 
     @Override

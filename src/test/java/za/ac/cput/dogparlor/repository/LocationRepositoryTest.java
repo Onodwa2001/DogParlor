@@ -44,8 +44,10 @@ class LocationRepositoryTest {
                 .setLongitude("-27.3831")
                 .setLatitude("11.2332")
                 .build();
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+
+        Location location1 = repository.update(updated);
+        assertNotNull(location1);
+        System.out.println("Updated: " + location1);
     }
 
     @Test

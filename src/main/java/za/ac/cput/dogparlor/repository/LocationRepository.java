@@ -51,13 +51,18 @@ public class LocationRepository implements ILocationRepository {
     public Location update(Location location) {
         Location oldLocation = read(location.getLocationID());
 
-        if (oldLocation != null) {
-            DB.remove(oldLocation);
-            DB.add(location);
-            return location;
-        }
+        if (oldLocation == null)
+            return null;
 
-        return null;
+        boolean successfulDelete = DB.remove(oldLocation);
+        if (!successfulDelete)
+            return null;
+
+        boolean successfulAdd = DB.add(location);
+        if (!successfulAdd)
+            return null;
+
+        return location;
     }
 
     @Override
