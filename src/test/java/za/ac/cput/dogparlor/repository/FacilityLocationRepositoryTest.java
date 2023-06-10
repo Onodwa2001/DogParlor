@@ -40,8 +40,7 @@ class FacilityLocationRepositoryTest {
 
     @Test
     void c_update() {
-        FacilityLocation updated = new FacilityLocation.FacilityLocationBuilder()
-                .setLocationID(1234)
+        FacilityLocation updated = new FacilityLocation.FacilityLocationBuilder().copy(facilityLocation)
                 .setFacilityID(5543)
                 .build();
 

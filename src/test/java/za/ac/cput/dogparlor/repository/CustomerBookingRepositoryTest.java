@@ -42,8 +42,7 @@ class CustomerBookingRepositoryTest {
 
     @Test
     void c_update() {
-        CustomerBooking updated = new CustomerBooking.Builder()
-                .setCustomerID(2322)
+        CustomerBooking updated = new CustomerBooking.Builder().copy(customerBooking)
                 .setBookingID(5564)
                 .build();
 

@@ -40,9 +40,7 @@ class LocationRepositoryTest {
 
     @Test
     void c_update() {
-        Location updated = new Location.LocationBuilder()
-                .setLocationID(2341)
-                .setName("The Hive")
+        Location updated = new Location.LocationBuilder().copy(location)
                 .setLongitude("-27.3831")
                 .setLatitude("11.2332")
                 .build();

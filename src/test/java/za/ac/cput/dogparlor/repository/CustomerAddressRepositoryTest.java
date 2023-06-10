@@ -41,8 +41,7 @@ class CustomerAddressRepositoryTest {
 
     @Test
     void c_update() {
-        CustomerAddress updated = new CustomerAddress.Builder()
-                        .setCustomerID(2322)
+        CustomerAddress updated = new CustomerAddress.Builder().copy(customerAddress)
                         .setAddressID(5564)
                         .build();
 
