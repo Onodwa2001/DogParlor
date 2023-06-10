@@ -37,8 +37,9 @@ class StaffRepositoryTest {
 
     @Test
     void c_update() {
-        Staff updated = new Staff.Builder().setStaffID(101)
-                .setSalary(20000)
+        Staff updated = new Staff.Builder().copy(staff)
+                .setStaffID(101)
+                .setSalary(50000)
                 .setHandleArea("Mobile grooming van counter")
                 .setIdRole(10)
                 .setPersonID(252)
@@ -49,7 +50,7 @@ class StaffRepositoryTest {
 
     @Test
     void e_delete() {
-        Staff deleted = repository.delete(staff);
+        boolean deleted = repository.delete(staff.getStaffID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }
