@@ -33,9 +33,9 @@ class StaffServiceRepositoryTest {
 
     @Test
     void c_update() {
-        StaffService updated = new StaffService.Builder()
+        StaffService updated = new StaffService.Builder().copy(staffService)
                 .setStaffID(101)
-                .setServiceID(255)
+                .setServiceID(300)
                 .build();
         System.out.println(updated);
         assertNotNull(repository.update(updated));
@@ -43,7 +43,7 @@ class StaffServiceRepositoryTest {
 
     @Test
     void e_delete() {
-        StaffService deleted = repository.delete(staffService);
+        boolean deleted = repository.delete(staffService.getStaffID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }

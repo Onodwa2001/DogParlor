@@ -48,25 +48,30 @@ public class StaffServiceRepository implements IStaffServiceRepository {
     public StaffService update(StaffService staffService) {
         StaffService oldStaffService = read(staffService.getStaffID());
 
-        if (oldStaffService != null) {
-            DB.remove(oldStaffService);
-            DB.add(staffService);
-            return staffService;
+        if (oldStaffService == null) {
+            return null;
         }
 
-        return null;
+        boolean successDelete = DB.remove(oldStaffService);
+        if (!successDelete)
+            return null;
+
+        boolean successAdd = DB.add(staffService);
+        if (!successAdd)
+            return null;
+
+        return staffService;
     }
 
     @Override
-    public StaffService delete(StaffService staffService) {
-        StaffService oldStaffService = read(staffService.getStaffID());
+    public boolean delete(Integer id) {
+        StaffService oldStaffService = read(id);
 
-        if (oldStaffService != null) {
-            DB.remove(oldStaffService);
-            return oldStaffService;
+        if (oldStaffService == null) {
+            return false;
         }
 
-        return null;
+        return DB.remove(oldStaffService);
     }
 
     @Override
