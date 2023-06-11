@@ -7,6 +7,8 @@ package za.ac.cput.dogparlor.domain;
      Date: 05 April 2023
  */
 
+import java.util.Objects;
+
 public class Location {
 
     private int locationID;
@@ -35,6 +37,19 @@ public class Location {
 
     public String getLatitude() {
         return latitude;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return locationID == location.locationID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(locationID);
     }
 
     @Override

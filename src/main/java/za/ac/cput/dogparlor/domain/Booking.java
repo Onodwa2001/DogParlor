@@ -1,21 +1,31 @@
+/* Payment.java
+   Entity for the Address
+   Author: Uthimna Sisipho Rubushe (221044329)
+   Date:05 April 2023
+ */
 package za.ac.cput.dogparlor.domain;
 
 import java.util.Date;
-import java.util.List;
-public class Booking {
-    private final int bookingID;
-    private final Date date;
-    private final String time;
-    private final List<String> service;
-    private final int total;
+import java.util.Objects;
 
-    private Booking (BookingBuilder builder){
+public class Booking {
+    private int bookingID;
+    private Date date;
+    private String time;
+    private String service;
+    private float total;
+
+    private Booking() {}
+
+    private Booking(BookingBuilder builder){
         this.bookingID = builder.bookingID;
         this.date = builder.date;
         this.time = builder.time;
         this.service = builder.service;
         this.total = builder.total;
     }
+
+
     public int getBookingID (){
         return bookingID;
     }
@@ -25,51 +35,58 @@ public class Booking {
     public String getTime (){
         return time;
     }
-    public List<String>getServices(){
+    public String getService(){
         return service;
     }
-    public int getTotal (){
+    public float getTotal (){
         return total;
     }
-    public static class
-    BookingBuilder {
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking that = (Booking) o;
+        return bookingID == that.bookingID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookingID);
+    }
+
+    public static class BookingBuilder {
         private int bookingID;
         private Date date;
         private String time;
-        private List<String> service;
-        private int total;
+        private String service;
+        private float total;
 
-        public BookingBuilder
-        setBookingID(int bookingID){
+        public BookingBuilder() {}
+
+        public BookingBuilder setBookingID(int bookingID){
             this.bookingID = bookingID ;
             return this;
         }
-        public BookingBuilder
-        setDate (Date date){
-            this.date =date;
+        public BookingBuilder setDate (Date date){
+            this.date = date;
             return this;
         }
-        public BookingBuilder
-        setTime (String time){
+        public BookingBuilder setTime (String time){
             this.time = time;
             return this;
         }
-        public BookingBuilder
-        setServices (List<String> services)
-        {
+        public BookingBuilder setService (String service){
             this.service = service;
             return this;
         }
-        public BookingBuilder
-        setTotal (int total){
+        public BookingBuilder setTotal (float total){
             this.total = total;
             return this;
         }
-        public Booking buiLd (){
+        public Booking build(){
             return new Booking(this);
         }
     }
 
 }
-
 

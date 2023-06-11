@@ -6,7 +6,9 @@
 
 package za.ac.cput.dogparlor.domain;
 
-public class Staff {
+import java.util.Objects;
+
+public class Staff extends Person {
     private int staffID;
     private double salary;
     private String handleArea;
@@ -43,7 +45,18 @@ public class Staff {
         return personID;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Staff that = (Staff) o;
+        return staffID == that.staffID;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(staffID);
+    }
     @Override
     public String toString() {
         return "Staff{" +
