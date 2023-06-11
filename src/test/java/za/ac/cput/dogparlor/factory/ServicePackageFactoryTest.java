@@ -33,7 +33,11 @@ class ServicePackageFactoryTest {
         package1 = package3;
         assertEquals(package1,package3);
     }
-
+    @Test
+    public void objectIdentity() {
+        package1 = package3;
+        assertSame(package1,package3);
+    }
     @Test
     void failingTest(){
         assertSame(package1,package2);

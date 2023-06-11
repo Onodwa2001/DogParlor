@@ -11,7 +11,7 @@ import za.ac.cput.dogparlor.util.Helper;
 
 public class RoleFactory {
 
-       public static Role createRole(int id, String name){
+       public static Role createRole(int id, String name, String  description){
 
         if(id == 0)
             return  null;
@@ -19,6 +19,6 @@ public class RoleFactory {
         if(Helper.isNullOrEmpty(name))
             return null;
 
-        return new Role.Builder().setIdRole(id).setRoleName(name).build();
+        return new Role.Builder().setRoleId(id).setRoleName(name).setDescription(description).build();
     }
 }
