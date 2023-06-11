@@ -45,26 +45,22 @@ public class DogRepository implements IDogRepository {
     @Override
     public Dog update(Dog dog) {
         Dog oldDog = read(dog.getDogID());
-
-        if (oldDog != null) {
-            DB.remove(oldDog);
-            DB.add(dog);
-            return dog;
-        }
-
-        return null;
+        if (oldDog == null)
+            return null;
+        boolean successfulDelete = DB.remove(oldDog);
+        if (!successfulDelete)
+            return null;
+        boolean successfulAdd = DB.add(dog);
+        if (!successfulAdd)
+            return null;
+        return dog;
     }
-
     @Override
-    public Dog delete(Dog dog) {
-        Dog oldDog = read(dog.getDogID());
-
-        if (oldDog != null) {
-            DB.remove(oldDog);
-            return oldDog;
-        }
-
-        return null;
+    public boolean delete(Integer id) {
+        Dog oldDog = read(id);
+        if (oldDog ==null)
+            return false;
+        return DB.remove(oldDog);
     }
 
     @Override

@@ -39,12 +39,12 @@ class DogRepositoryTest {
 
     @Test
     void c_update() {
-        Dog updated = new Dog.Builder()
+        Dog updated = new Dog.Builder().copy(dog)
                 .setDogID(21823)
                 .setName("Ankira")
                 .setAge(2)
                 .setBreed("pitbull")
-                .setHairSize("small")
+                .setDogSize("small")
                 .setHairLength("short")
                 .build();
         System.out.println(updated);
@@ -53,7 +53,7 @@ class DogRepositoryTest {
 
     @Test
     void e_delete() {
-        Dog deleted = repository.delete(dog);
+        boolean deleted = repository.delete(dog.getDogID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }

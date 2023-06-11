@@ -6,6 +6,7 @@
 
 package za.ac.cput.dogparlor.repository;
         import za.ac.cput.dogparlor.domain.Customer;
+        import za.ac.cput.dogparlor.domain.Dog;
 
         import java.util.HashSet;
         import java.util.Set;
@@ -45,30 +46,26 @@ public class CustomerRepository implements ICustomerRepository {
                 .orElse(null);
     }
 
-    @Override
     public Customer update(Customer customer) {
         Customer oldCustomer = read(customer.getCustomerID());
-
-        if (oldCustomer != null) {
-            DB.remove(oldCustomer);
-            DB.add(customer);
-            return customer;
-        }
-
-        return null;
+        if (oldCustomer == null)
+            return null;
+        boolean successfulDelete = DB.remove(oldCustomer);
+        if (!successfulDelete)
+            return null;
+        boolean successfulAdd = DB.add(customer);
+        if (!successfulAdd)
+            return null;
+        return customer;
     }
-
     @Override
-    public Customer delete(Customer customer) {
-        Customer oldCustomer = read(customer.getCustomerID());
-
-        if (oldCustomer != null) {
-            DB.remove(oldCustomer);
-            return oldCustomer;
-        }
-
-        return null;
+    public boolean delete(Integer id) {
+        Customer oldCustomer = read(id);
+        if (oldCustomer ==null)
+            return false;
+        return DB.remove(oldCustomer);
     }
+
 
     @Override
     public Set<Customer> getAllCustomers() {

@@ -38,7 +38,7 @@ class CustomerDogRepositoryTest {
 
     @Test
     void c_update() {
-        CustomerDog updated = new CustomerDog.Builder()
+        CustomerDog updated = new CustomerDog.Builder().copy(customerDog)
                 .setCustomerID(78963)
                 .setDogID(36987)
                 .build();
@@ -48,7 +48,7 @@ class CustomerDogRepositoryTest {
 
     @Test
     void e_delete() {
-        CustomerDog deleted = repository.delete(customerDog);
+        boolean deleted = repository.delete(customerDog.getCustomerID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }

@@ -10,7 +10,7 @@ public class Dog {
     private String name;
     private int age;
     private String breed;
-    private String hairSize;
+    private String dogSize;
     private String hairLength;
 
     private Dog() {}
@@ -19,7 +19,7 @@ public class Dog {
         this.name = builder.name;
         this.age = builder.age;
         this.breed = builder.breed;
-        this.hairSize = builder.hairSize;
+        this.dogSize = builder.dogSize;
         this.hairLength = builder.hairLength;
     }
     public int getDogID() {
@@ -37,8 +37,8 @@ public class Dog {
         return breed;
 
     }
-    public String getHairSize() {
-        return hairSize;
+    public String getDogSize() {
+        return dogSize;
     }
     public String getHairLength() {
         return hairLength;
@@ -52,7 +52,7 @@ public class Dog {
                 ", name='" + name + '\'' +
                 ", age='" + age + '\'' +
                 ", breed='" + breed + '\'' +
-                ", hairSize='" + hairSize + '\'' +
+                ", dogSize='" + dogSize + '\'' +
                 ", hairLength='" + hairLength + '\'' +
                 '}';
     }
@@ -65,7 +65,7 @@ public class Dog {
         private String name;
         private int age;
         private String breed;
-        private String hairSize;
+        private String dogSize;
         private String hairLength;
 
         public Builder setDogID(int dogID) {
@@ -89,8 +89,8 @@ public class Dog {
             this.breed = breed;
             return this;
         }
-        public Builder setHairSize(String hairSize) {
-            this.hairSize = hairSize;
+        public Builder setDogSize(String dogSize) {
+            this.dogSize = dogSize;
             return this;
         }
         public Builder setHairLength(String hairLength) {
@@ -104,7 +104,7 @@ public class Dog {
             this.name = dog.name;
             this.age = dog.age;
             this.breed = dog.breed;
-            this.hairSize = dog.hairSize;
+            this.dogSize = dog.dogSize;
             this.hairLength = dog.hairLength;
             return this;
 
