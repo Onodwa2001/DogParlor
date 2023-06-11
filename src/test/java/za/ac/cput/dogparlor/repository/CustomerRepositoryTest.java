@@ -38,8 +38,8 @@ class CustomerRepositoryTest {
 
     @Test
     void c_update() {
-        Customer updated = new Customer.Builder()
-                .setCustomerID(21397)
+        Customer updated = new Customer.Builder().copy(customer)
+                .setCustomerID(74123)
                 .build();
         System.out.println(updated);
         assertNotNull(repository.update(updated));
@@ -47,7 +47,7 @@ class CustomerRepositoryTest {
 
     @Test
     void e_delete() {
-        Customer deleted = repository.delete(customer);
+        boolean deleted = repository.delete(customer.getCustomerID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }
