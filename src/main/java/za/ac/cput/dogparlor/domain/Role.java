@@ -6,39 +6,49 @@
 
 package za.ac.cput.dogparlor.domain;
 
+
 public class Role {
-    private int idRole;
+    private int roleId;
     private String roleName;
+    private String description;
 
     public Role(){}
 
     private Role(Builder builder){
-        this.idRole = builder.idRole;
+        this.roleId = builder.roleId;
         this.roleName = builder.roleName;
+        this.description = builder.description;
     }
 
-    public int getIdRole() {
-        return idRole;
+    public int getRoleId() {
+        return roleId;
     }
 
     public String getRoleName() {
         return roleName;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return "Role{" +
-                "idRole=" + idRole +
+                "roleId=" + roleId +
                 ", roleName='" + roleName + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 
-    public static class Builder{
-        private int idRole;
-        private String roleName;
 
-        public Builder setIdRole(int idRole) {
-            this.idRole = idRole;
+    public static class Builder{
+        private int roleId;
+        private String roleName;
+        private String description;
+
+        public Builder setRoleId(int roleId) {
+            this.roleId = roleId;
             return this;
         }
 
@@ -46,9 +56,15 @@ public class Role {
             this.roleName = roleName;
             return this;
         }
+        public Builder setDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
         public Builder copy(Role role){
-            this.idRole = role.idRole;
+            this.roleId = role.roleId;
             this.roleName = role.roleName;
+            this.description = role.description;
             return this;
         }
 

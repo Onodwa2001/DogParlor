@@ -36,6 +36,10 @@ class ExtraServiceFactoryTest {
         assertEquals(extraService1,extraService3);
     }
 
+    public void objectIdentity() {
+        extraService1 = extraService3;
+        assertSame(extraService1,extraService3);
+    }
     @Test
     void failingTest(){
         assertSame(extraService1,extraService2);

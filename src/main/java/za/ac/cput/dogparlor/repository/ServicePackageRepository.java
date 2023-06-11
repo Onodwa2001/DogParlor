@@ -48,25 +48,29 @@ public class ServicePackageRepository implements IServicePackageRepository{
 
     @Override
     public ServicePackage update(ServicePackage servicePackage) {
-        ServicePackage oldPackage = read(servicePackage.getExtraId());
+        ServicePackage original = read(servicePackage.getExtraId());
 
-        if (oldPackage != null) {
-            servicePackagesDB.remove(oldPackage);
-            servicePackagesDB.add(servicePackage);
-            return servicePackage;
-        }
-        return null;
+        if (original == null)
+            return  null;
+
+        boolean successDelete = servicePackagesDB.remove(original);
+        if(!successDelete)
+            return  null;
+
+        boolean successAdd = servicePackagesDB.add(servicePackage);
+        if (!successAdd)
+            return null;
+        return servicePackage;
     }
 
     @Override
-    public ServicePackage delete(ServicePackage servicePackage) {
-        ServicePackage oldPackage = read(servicePackage.getServiceId());
+    public boolean delete(Integer id){
+        ServicePackage oldPackage = read(id);
 
-        if (oldPackage != null) {
-            servicePackagesDB.remove(oldPackage);
-            return oldPackage;
+        if (oldPackage == null) {
+            return false;
         }
-        return null;
+        return servicePackagesDB.remove(oldPackage);
     }
 
     @Override

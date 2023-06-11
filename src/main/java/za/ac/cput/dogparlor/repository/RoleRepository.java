@@ -43,32 +43,37 @@ public class RoleRepository implements IRoleRepository{
     @Override
     public Role read(Integer id) {
         return roleDB.stream()
-                .filter( role -> role.getIdRole() == id )
+                .filter( role -> role.getRoleId() == id )
                 .findAny()
                 .orElse(null);
     }
 
     @Override
     public Role update(Role role) {
-        Role oldRole = read(role.getIdRole());
+        Role original = read(role.getRoleId());
 
-        if (oldRole != null) {
-            roleDB.remove(oldRole);
-            roleDB.add(role);
-            return role;
-        }
-        return null;
+        if (original == null)
+            return  null;
+
+        boolean successDelete = roleDB.remove(original);
+        if(!successDelete)
+            return  null;
+
+        boolean successAdd = roleDB.add(role);
+        if (!successAdd)
+            return null;
+        return role;
     }
 
     @Override
-    public Role delete(Role role) {
-        Role oldRole = read(role.getIdRole());
+    public boolean delete(Integer id) {
+        Role oldRole = read(id);
 
-        if (oldRole != null) {
-            roleDB.remove(oldRole);
-            return oldRole;
+        if (oldRole == null) {
+            return false;
         }
-        return null;
+
+        return roleDB.remove(oldRole);
     }
 
     @Override
