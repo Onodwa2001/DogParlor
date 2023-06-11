@@ -18,17 +18,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoleRepositoryTest {
 
     private static RoleRepository repository = RoleRepository.getRepository();
-    private static Role role = RoleFactory.createRole(4,"Groomer");
+    private static Role role = RoleFactory.createRole(4,"Employee", "Groomer");
     @Test
     void a_create() {
         Role create = repository.create(role);
-        assertEquals(role.getIdRole(), create.getIdRole());
+        assertEquals(role.getRoleId(), create.getRoleId());
         System.out.println("Create: " + create);
     }
 
     @Test
     void b_read() {
-        Role read = repository.read(role.getIdRole());
+        Role read = repository.read(role.getRoleId());
         assertNotNull(read);
         System.out.println("Read:  " + read);
     }
@@ -36,14 +36,14 @@ class RoleRepositoryTest {
     @Test
     void c_update() {
         Role updated = new Role.Builder().copy(role)
-                      .setRoleName("Nail Filer").build();
+                      .setRoleName("Manager").build();
         assertNotNull(repository.update(updated));
         System.out.println("Updated:  " + updated);
     }
 
     @Test
     void e_delete() {
-        Role deleted = repository.delete(role);
+        boolean deleted = repository.delete(role.getRoleId());
         assertNotNull(deleted);
         System.out.println("Delete:  " + deleted);
     }

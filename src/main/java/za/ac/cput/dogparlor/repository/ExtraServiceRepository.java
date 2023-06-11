@@ -51,25 +51,30 @@ public class ExtraServiceRepository implements IExtraServiceRepository {
 
     @Override
     public ExtraService update(ExtraService extraService) {
-        ExtraService oldService = read(extraService.getExtraId());
+        ExtraService original = read(extraService.getExtraId());
 
-        if (oldService != null) {
-            extraServiceDB.remove(oldService);
-            extraServiceDB.add(extraService);
-            return extraService;
-        }
-        return null;
+        if (original == null)
+            return  null;
+
+        boolean successDelete = extraServiceDB.remove(original);
+        if(!successDelete)
+            return  null;
+
+        boolean successAdd = extraServiceDB.add(extraService);
+        if (!successAdd)
+            return null;
+        return extraService;
     }
 
     @Override
-    public ExtraService delete(ExtraService extraService) {
-        ExtraService oldServices = read(extraService.getExtraId());
+    public boolean delete(Integer id){
+        ExtraService oldService = read(id);
 
-        if (oldServices != null) {
-            extraServiceDB.remove(oldServices);
-            return oldServices;
+        if(oldService == null) {
+            return false;
         }
-        return null;
+
+        return  extraServiceDB.remove(oldService);
     }
 
     @Override

@@ -36,14 +36,14 @@ class ExtraServiceRepositoryTest {
     @Test
     void c_update() {
         ExtraService updated = new ExtraService.Builder().copy(service)
-                              .setExtraServiceName("Shave").build();
+                              .setExtraServiceName("Winter Shave").build();
         assertNotNull(repository.update(updated));
         System.out.println("Updated:  " + updated);
     }
 
     @Test
     void e_delete() {
-        ExtraService deleted = repository.delete(service);
+        boolean deleted = repository.delete(service.getExtraId());
         assertNotNull(deleted);
         System.out.println("Delete:  " + deleted);
     }

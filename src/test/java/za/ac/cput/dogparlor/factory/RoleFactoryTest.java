@@ -20,8 +20,8 @@ class RoleFactoryTest {
 
     @BeforeEach
     void setUpTest() {
-        role1 = RoleFactory.createRole(52, "Shampoo Queen");
-        role2 = RoleFactory.createRole(03, "Grooming Manager");
+        role1 = RoleFactory.createRole(1, "Employee","Shampoo Queen");
+        role2 = RoleFactory.createRole(3, "Manager", "Grooming Manager");
     }
 
     @Test
@@ -35,6 +35,11 @@ class RoleFactoryTest {
         assertEquals(role1,role3);
     }
 
+    @Test
+    public void objectIdentity() {
+        role1 = role3;
+        assertSame(role1,role3);
+    }
     @Test
     void failingTest(){
         assertSame(role1,role2);

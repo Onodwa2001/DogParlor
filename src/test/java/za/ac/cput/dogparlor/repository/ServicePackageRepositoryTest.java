@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.dogparlor.domain.ServicePackage;
 import za.ac.cput.dogparlor.factory.ServicePackageFactory;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -43,7 +42,7 @@ class ServicePackageRepositoryTest {
 
     @Test
     void e_delete() {
-        ServicePackage deleted = repository.delete(serPack);
+        boolean deleted = repository.delete(serPack.getServiceId());
         assertNotNull(deleted);
         System.out.println("Delete:  " + deleted);
     }
