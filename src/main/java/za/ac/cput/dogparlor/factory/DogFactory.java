@@ -7,7 +7,7 @@
 package za.ac.cput.dogparlor.factory;
         import za.ac.cput.dogparlor.util.Helper;
         import za.ac.cput.dogparlor.domain.Dog;
-
+//Double check
 public class DogFactory {
     public static Dog createDog(int dogID ,String name, int age , String breed, String dogSize, String hairLength){
         if (Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(breed) || Helper.isNullOrEmpty(dogSize) || Helper.isNullOrEmpty(hairLength))

@@ -39,7 +39,7 @@ class CustomerRepositoryTest {
     @Test
     void c_update() {
         Customer updated = new Customer.Builder().copy(customer)
-                .setCustomerID(21397)
+                .setCustomerID(74123)
                 .build();
         System.out.println(updated);
         assertNotNull(repository.update(updated));

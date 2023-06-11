@@ -40,12 +40,7 @@ class DogRepositoryTest {
     @Test
     void c_update() {
         Dog updated = new Dog.Builder().copy(dog)
-                .setDogID(21823)
-                .setName("Ankira")
-                .setAge(2)
-                .setBreed("pitbull")
-                .setDogSize("small")
-                .setHairLength("short")
+                .setDogID(89634)
                 .build();
         System.out.println(updated);
         assertNotNull(repository.update(updated));

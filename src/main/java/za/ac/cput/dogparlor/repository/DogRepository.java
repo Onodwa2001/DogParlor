@@ -45,8 +45,9 @@ public class DogRepository implements IDogRepository {
     @Override
     public Dog update(Dog dog) {
         Dog oldDog = read(dog.getDogID());
-        if (oldDog == null)
+        if (oldDog == null) {
             return null;
+        }
         boolean successfulDelete = DB.remove(oldDog);
         if (!successfulDelete)
             return null;

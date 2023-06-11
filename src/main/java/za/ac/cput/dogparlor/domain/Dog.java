@@ -56,7 +56,7 @@ public class Dog {
                 ", hairLength='" + hairLength + '\'' +
                 '}';
     }
-
+//double Check
 
     //implement builder pattern
 

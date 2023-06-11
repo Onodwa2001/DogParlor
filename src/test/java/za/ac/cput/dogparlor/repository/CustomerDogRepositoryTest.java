@@ -39,8 +39,7 @@ class CustomerDogRepositoryTest {
     @Test
     void c_update() {
         CustomerDog updated = new CustomerDog.Builder().copy(customerDog)
-                .setCustomerID(78963)
-                .setDogID(36987)
+                .setDogID(85214)
                 .build();
         System.out.println(updated);
         assertNotNull(repository.update(updated));

@@ -47,8 +47,9 @@ public class CustomerDogRepository implements ICustomerDogRepository {
     }
     public CustomerDog update(CustomerDog customerDog) {
         CustomerDog oldCustomerDog = read(customerDog.getCustomerID());
-        if (oldCustomerDog == null)
+        if (oldCustomerDog == null) {
             return null;
+        }
         boolean successfulDelete = DB.remove(oldCustomerDog);
         if (!successfulDelete)
             return null;

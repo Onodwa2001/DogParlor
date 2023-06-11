@@ -48,8 +48,9 @@ public class CustomerRepository implements ICustomerRepository {
 
     public Customer update(Customer customer) {
         Customer oldCustomer = read(customer.getCustomerID());
-        if (oldCustomer == null)
+        if (oldCustomer == null) {
             return null;
+        }
         boolean successfulDelete = DB.remove(oldCustomer);
         if (!successfulDelete)
             return null;
