@@ -37,7 +37,6 @@ class StaffServiceServiceImplTest {
     @Test
     void c_update() {
         StaffService staffService = new StaffService.Builder().copy(StaffService)
-                .setStaffID(200)
                 .setServiceID(260)
                 .build();
         StaffService updated = StaffServiceService.update(staffService);

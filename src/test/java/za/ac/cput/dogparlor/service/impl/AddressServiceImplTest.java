@@ -40,12 +40,7 @@ class AddressServiceImplTest {
     @Test
     void c_update() {
         Address Address1 = new Address.Builder().copy(address)
-                .setAddressID(25)
-                .setStreetAddress("65 Soccer Street")
-                .setCity("Cape Town")
-                .setState("Western Cape")
-                .setZipCode("7785")
-                .setCountry("Kenya")
+                .setStreetAddress("23 Jordan Street")
                 .build();
         Address updated = addressService.update(Address1);
         assertNotNull(updated);

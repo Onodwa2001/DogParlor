@@ -39,11 +39,7 @@ class StaffServiceImplTest {
     @Test
     void c_update() {
         Staff Staff1 = new Staff.Builder().copy(Staff)
-                .setStaffID(101)
-                .setSalary(50000)
                 .setHandleArea("Wash and dip")
-                .setIdRole(10)
-                .setPersonID(252)
                 .build();
         Staff updated = StaffService.update(Staff1);
         assertNotNull(updated);
