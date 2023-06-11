@@ -108,21 +108,22 @@ public class Service {
             return serviceId == builder.serviceId && Double.compare(builder.price, price) == 0 && Objects.equals(serviceType, builder.serviceType) && Objects.equals(serviceDuration, builder.serviceDuration) && Objects.equals(serviceDescription, builder.serviceDescription) && Objects.equals(servicePackage, builder.servicePackage);
         }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(serviceId, price, serviceType, serviceDuration, serviceDescription, servicePackage);
-        }
 
-        @Override
-        public String toString() {
-            return "Builder{" +
-                    "serviceId=" + serviceId +
-                    ", price=" + price +
-                    ", serviceType='" + serviceType + '\'' +
-                    ", serviceDuration='" + serviceDuration + '\'' +
-                    ", serviceDescription='" + serviceDescription + '\'' +
-                    ", servicePackage='" + servicePackage + '\'' +
-                    '}';
-        }
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(serviceId, price, serviceType, serviceDuration, serviceDescription, servicePackage);
+    }
+
+    @Override
+    public String toString() {
+        return "Builder{" +
+                "serviceId=" + serviceId +
+                ", price=" + price +
+                ", serviceType='" + serviceType + '\'' +
+                ", serviceDuration='" + serviceDuration + '\'' +
+                ", serviceDescription='" + serviceDescription + '\'' +
+                ", servicePackage='" + servicePackage + '\'' +
+                '}';
     }
 }
