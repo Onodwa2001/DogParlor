@@ -8,7 +8,7 @@ package za.ac.cput.dogparlor.domain;
 import java.util.Objects;
 
 public class Service {
-    private int serviceId;
+    private static int serviceId;
     private double price;
     private String serviceType;
     private String serviceDuration;
@@ -26,7 +26,7 @@ public class Service {
         this.servicePackage = builder.servicePackage;
     }
 
-    public int getServiceId() {
+    public static int getServiceId() {
         return serviceId;
     }
 

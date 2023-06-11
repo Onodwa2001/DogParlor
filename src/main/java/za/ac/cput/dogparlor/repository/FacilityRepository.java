@@ -5,7 +5,9 @@
  */
 package za.ac.cput.dogparlor.repository;
 
+import za.ac.cput.dogparlor.domain.CustomerAddress;
 import za.ac.cput.dogparlor.domain.Facility;
+import za.ac.cput.dogparlor.domain.Service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -52,23 +54,29 @@ public class FacilityRepository implements IFacilityRepository{
     public Facility update(Facility facility) {
         Facility oldFacility = read(facility.getFacilityId());
 
-        if(oldFacility != null) {
-            DB.remove(oldFacility);
-            DB.add(facility);
-            return facility;
-        }
-        return null;
+        if (oldFacility == null)
+            return null;
+
+        boolean successfulDelete = DB.remove(oldFacility);
+        if (!successfulDelete)
+            return null;
+
+        boolean successfulAdd = DB.add(facility);
+        if (!successfulAdd)
+            return null;
+
+        return facility;
     }
 
     @Override
-    public Facility delete(Facility facility) {
-        Facility oldFacility = read(facility.getFacilityId());
+    public boolean delete(Integer integer) {
+        Facility foundFacility = read(integer);
 
-        if (oldFacility != null) {
-            DB.remove(oldFacility);
-            return oldFacility;
-        }
-        return null;
+        if (foundFacility == null)
+            return false;
+
+        return DB.remove(foundFacility);
+
     }
 
     @Override
