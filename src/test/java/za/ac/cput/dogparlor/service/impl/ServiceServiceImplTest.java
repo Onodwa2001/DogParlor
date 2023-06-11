@@ -33,11 +33,6 @@ class ServiceServiceImplTest {
     void c_update() {
         Service service1 = new Service.Builder().copy(service)
                 .setServiceId(1111)
-                .setPrice(53.99)
-                .setServiceType("Grooming")
-                .setServiceDescription("Normal dog grooming")
-                .setServiceDuration("1 hour")
-                .setServicePackage("Normal")
                 .build();
         Service updated = serviceService.update(service1);
         assertNotNull(updated);

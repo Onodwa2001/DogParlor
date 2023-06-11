@@ -32,7 +32,6 @@ class CustomerServiceServiceImplTest {
     void c_update() {
         CustomerService customerService1 = new CustomerService.Builder().copy(customerService)
                 .setCustomerId(0001)
-                .setServiceId(0002)
                 .build();
         CustomerService updated = customerServiceService.update(customerService1);
         assertNotNull(updated);
