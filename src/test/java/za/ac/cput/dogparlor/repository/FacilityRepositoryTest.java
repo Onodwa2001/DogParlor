@@ -8,13 +8,13 @@ package za.ac.cput.dogparlor.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.dogparlor.domain.CustomerAddress;
 import za.ac.cput.dogparlor.domain.Facility;
 import za.ac.cput.dogparlor.factory.FacilityFactory;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class FacilityRepositoryTest {
@@ -37,18 +37,20 @@ class FacilityRepositoryTest {
 
     @Test
     void c_update() {
-        Facility updated = new Facility.Builder()
-                .setFacilityId(123)
+        Facility updated = new Facility.Builder().copy(facility)
+                .setFacilityId(003)
                 .build();
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+
+        Facility updatedFacility = repository.update(updated);
+        assertNotNull(updatedFacility);
+        System.out.println("Updated: " + updatedFacility);
     }
 
     @Test
     void e_delete() {
-        Facility deleted = repository.delete(facility);
+        boolean deleted = repository.delete(facility.getFacilityId());
         System.out.println(deleted);
-        assertNotNull(deleted);
+        assertTrue(deleted);
     }
 
     @Test

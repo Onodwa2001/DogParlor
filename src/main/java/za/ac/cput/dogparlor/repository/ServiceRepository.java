@@ -5,6 +5,7 @@
  */
 package za.ac.cput.dogparlor.repository;
 
+import za.ac.cput.dogparlor.domain.CustomerAddress;
 import za.ac.cput.dogparlor.domain.Service;
 
 import java.util.HashSet;
@@ -48,24 +49,31 @@ public class ServiceRepository implements IServiceRepository{
     public Service update(Service service) {
         Service oldService = read(service.getServiceId());
 
-        if(oldService != null) {
-            DB.remove(oldService);
-            DB.add(service);
-            return service;
+        if (oldService == null)
+            return null;
+
+        boolean successfulDelete = DB.remove(oldService);
+        if (!successfulDelete)
+            return null;
+
+        boolean successfulAdd = DB.add(service);
+        if (!successfulAdd)
+            return null;
+
+        return service;
         }
-        return null;
-    }
 
     @Override
-    public Service delete(Service service) {
-        Service oldService = read(service.getServiceId());
+    public boolean delete(Integer integer) {
+    Service foundService = read(integer);
 
-        if(oldService != null) {
-            DB.remove(oldService);
-            return oldService;
-        }
-        return null;
+    if (foundService == null)
+        return false;
+
+    return DB.remove(foundService);
     }
+
+
 
     @Override
     public Set<Service> getAllServices() {
