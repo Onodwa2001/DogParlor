@@ -13,29 +13,29 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.class)
 class PaymentServiceImplTest {
 
-    private PaymentServiceImplTest paymentService = null;
+    private PaymentServiceImpl paymentService = null;
     private Payment payment = PaymentFactory.createPayment(778, 768);
 
     @Test
     void a_create() {
-        Payment payment1 = PaymentServiceImplTest.create(payment);
+        Payment payment1 = paymentService.create(payment);
         assertNotNull(payment1);
         System.out.println("Created: " + payment1);
     }
 
     @Test
     void b_read() {
-        Payment payment1 = payment.read(payment.getPaymentID());
+        Payment payment1 = paymentService.read(payment.getPaymentID());
         assertNotNull(payment1);
         System.out.println("Read: " + payment1);
     }
 
     @Test
     void c_update() {
-        Payment payment1 = new Payment().Builder().copy(payment)
-                .setAddressID(3762)
+        Payment payment1 = new Payment.PaymentBuilder().copy(payment)
+                .setPaymentID(3762)
                 .build();
-        Payment updated = PaymentServiceImplTest.update(payment1);
+        Payment updated = paymentService.update(payment1);
         assertNotNull(updated);
         System.out.println("Updated: " + updated);
     }
@@ -49,7 +49,7 @@ class PaymentServiceImplTest {
 
     @Test
     void d_getAll() {
-        Set<Payment> payments = paymentService.getAll();
+        Set<Payment> payments = paymentService.getAllPayments();
         assertNotNull(payments);
         System.out.println("All items: " + payments);
     }

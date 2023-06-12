@@ -3,50 +3,53 @@ package za.ac.cput.dogparlor.service.impl;
 
 
 import za.ac.cput.dogparlor.domain.CustomerAddress;
+import za.ac.cput.dogparlor.domain.Payment;
 import za.ac.cput.dogparlor.repository.CustomerAddressRepository;
+import za.ac.cput.dogparlor.repository.PaymentRepository;
 import za.ac.cput.dogparlor.service.CustomerAddressService;
+import za.ac.cput.dogparlor.service.PaymentService;
 
 import java.util.Set;
 
-public class BookingServiceImpl implements CustomerAddressService {
+public class PaymentServiceImpl implements PaymentService {
 
-    private static BookingServiceImpl bookingService = null;
-    private CustomerAddressRepository bookingRepository = null;
+    private static PaymentServiceImpl paymentService = null;
+    private PaymentRepository paymentRepository = null;
 
-    private BookingServiceImpl() {
-        bookingRepository = bookingRepository.getBookingRepository();
+    private PaymentServiceImpl() {
+        paymentRepository = paymentRepository.getPaymentRepository();
     }
 
-    public static BookingServiceImpl getInstance() {
-        if (bookingService == null) {
-            bookingService = new BookingServiceImpl();
+    public static PaymentServiceImpl getInstance() {
+        if (paymentService == null) {
+            paymentService = new PaymentServiceImpl();
         }
-        return bookingService;
+        return paymentService;
     }
 
     @Override
-    public CustomerAddress create(CustomerAddress customerAddress) {
-        return bookingRepository.create(customerAddress);
+    public Payment create(Payment payment) {
+        return paymentRepository.create(payment);
     }
 
     @Override
-    public CustomerAddress read(Integer integer) {
-        return bookingRepository.read(integer);
+    public Payment read(Integer id) {
+        return paymentRepository.read(id);
     }
 
     @Override
-    public CustomerAddress update(CustomerAddress customerAddress) {
-        return bookingRepository.update(booking);
+    public Payment update(Payment payment) {
+        return paymentRepository.update(payment);
     }
 
     @Override
-    public boolean delete(Integer integer) {
-        return bookingRepository.delete(integer);
+    public boolean delete(Integer id) {
+        return paymentRepository.delete(id);
     }
 
     @Override
-    public Set<CustomerAddress> getAll() {
-        return bookingRepository.getAllPayments();
+    public Set<Payment> getAllPayments() {
+        return paymentRepository.getAllPayments();
     }
 
 }

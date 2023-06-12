@@ -3,6 +3,8 @@ public class Payment {
     private int paymentID;
     private double amount;
 
+    private Payment() {}
+
     private Payment (PaymentBuilder builder){
         this.paymentID = builder.paymentID;
         this.amount = builder.amount;
@@ -15,6 +17,8 @@ public class Payment {
     public double getAmount(){
         return amount;
     }
+
+
 
     public static class PaymentBuilder{
         private int paymentID;

@@ -6,6 +6,9 @@ import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.dogparlor.domain.Booking;
 import za.ac.cput.dogparlor.factory.BookingFactory;
 
+import java.util.Date;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.class)

@@ -45,9 +45,9 @@ public class BookingPaymentRepositoryTest {
 
     @Test
     void e_delete() {
-        BookingPayment deleted = repository.delete(bookingPayment);
-        System.out.println(deleted);
+        boolean deleted = repository.delete(bookingPayment.getBookingID());
         assertNotNull(deleted);
+        System.out.println("Deleted: " + (deleted ? "Yes" : "No"));
     }
 
     @Test

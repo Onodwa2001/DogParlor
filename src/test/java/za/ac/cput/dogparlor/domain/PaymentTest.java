@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PaymentTest {
     void testObjectIdentity() {
-        Payment payment = new Payment.Builder()
+        Payment payment = new Payment.PaymentBuilder()
                 .setPaymentID(251)
                 .setAmount(5000)
                 .build();
@@ -23,12 +23,12 @@ class PaymentTest {
 
     @Test
     void testObjectEquality() {
-        Payment payment = new Payment.Builder()
+        Payment payment = new Payment.PaymentBuilder()
                 .setPaymentID(251)
                 .setAmount(5000)
                 .build();
 
-        Payment payment2 = new Payment.Builder()
+        Payment payment2 = new Payment.PaymentBuilder()
                 .setPaymentID(251)
                 .setAmount(5000)
                 .build();
