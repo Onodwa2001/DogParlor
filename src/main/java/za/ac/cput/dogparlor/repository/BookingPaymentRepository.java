@@ -36,14 +36,25 @@ public class BookingPaymentRepository implements IBookingPaymentRepository {
     public BookingPayment update(BookingPayment bookingPayment){
         BookingPayment oldBookingPayment = read(bookingPayment.getPaymentID());
 
-        if (oldBookingPayment != null) {
-            BookingPaymentDB.remove(oldBookingPayment);
-            BookingPaymentDB.add(bookingPayment);
-            return bookingPayment;
-        }
+        if (oldBookingPayment == null)
+            return null;
 
-        return null;
+        boolean successfulDelete = BookingPaymentDB.remove(oldBookingPayment);
+        if (!successfulDelete)
+            return null;
+        boolean successfulAdd = BookingPaymentDB.add(bookingPayment);
+        if (!successfulAdd)
+            return null;
+
+        return bookingPayment;
+
     }
+
+    @Override
+    public boolean delete(Integer integer) {
+        return false;
+    }
+
 
     public BookingPayment delete(BookingPayment bookingPayment){
         BookingPayment bookingPaymentFound = read(bookingPayment.getBookingID());

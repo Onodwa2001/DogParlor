@@ -13,7 +13,7 @@ public class PaymentRepository implements IPaymentRepository {
         DB = new HashSet<>();
     }
 
-    public static PaymentRepository  getPaymentRepository() {
+    public static PaymentRepository getPaymentRepository() {
         if (paymentRepository == null) {
             paymentRepository = new PaymentRepository();
         }
@@ -34,7 +34,7 @@ public class PaymentRepository implements IPaymentRepository {
     @Override
     public Payment read(Integer id) {
         return DB.stream()
-                .filter( Payment -> Payment.getPaymentID() == id )
+                .filter(Payment -> Payment.getPaymentID() == id)
                 .findAny()
                 .orElse(null);
     }
@@ -43,13 +43,32 @@ public class PaymentRepository implements IPaymentRepository {
     public Payment update(Payment payment) {
         Payment oldPayment = read(payment.getPaymentID());
 
-        if (oldPayment != null) {
-            DB.remove(oldPayment);
-            DB.add(payment);
-            return payment;
-        }
+        if (oldPayment == null)
+            return null;
 
-        return null;
+        boolean successfulDelete = DB.remove(oldPayment);
+        if (!successfulDelete)
+            return null;
+        boolean successfulAdd = DB.add(payment);
+        if (!successfulAdd)
+            return null;
+
+        return payment;
+
+
+
+    }
+
+
+
+    @Override
+    public boolean delete(Integer id) {
+        Payment foundPayment = read(id);
+
+        if (foundPayment == null)
+        return false;
+        return DB.remove(foundPayment);
+
     }
 
     @Override
