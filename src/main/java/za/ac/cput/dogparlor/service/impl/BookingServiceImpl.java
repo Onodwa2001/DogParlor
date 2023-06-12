@@ -29,28 +29,8 @@ public class BookingServicImpl implements BookingService {
     }
 
     @Override
-    public CustomerAddress create(CustomerAddress customerAddress) {
-        return bookingRepository.create(customerAddress);
-    }
-
-    @Override
-    public CustomerAddress read(Integer integer) {
-        return bookingRepository.read(integer);
-    }
-
-    @Override
-    public CustomerAddress update(CustomerAddress customerAddress) {
-        return bookingRepository.update(booking);
-    }
-
-    @Override
-    public boolean delete(Integer integer) {
-        return bookingRepository.delete(integer);
-    }
-
-    @Override
-    public Set<CustomerAddress> getAll() {
-        return bookingRepository.getAllBookings();
+    public Booking create(Booking booking) {
+        return bookingRepository.create(booking);
     }
 
 }

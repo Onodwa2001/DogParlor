@@ -1,18 +1,20 @@
 package za.ac.cput.dogparlor.service.impl;
 
 import org.junit.Test;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.dogparlor.domain.Booking;
 import za.ac.cput.dogparlor.factory.BookingFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@TestMethodOrder() (MethodOrderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.class)
 class BookingServiceImplTest {
 
 
     private BookingServiceImpl bookingService = null;
-    private Booking booking = BookingFactory.createBooking(2432, 5332);
+
+    private Booking booking = BookingFactory.createBooking(6789, new Date(), "15:20", "wash", 365);
 
     @Test
     void a_create() {
@@ -30,25 +32,25 @@ class BookingServiceImplTest {
 
     @Test
     void c_update() {
-        Booking booking1 = new CustomerAddress.Builder().copy(customerAddress)
-                .setAddressID(3762)
+        Booking booking1 = new Booking.BookingBuilder().copy(booking)
+                .setBookingID(546)
                 .build();
-        CustomerAddress updated = customerAddressService.update(customerAddress1);
+        Booking updated = bookingService.update(booking1);
         assertNotNull(updated);
         System.out.println("Updated: " + updated);
     }
 
     @Test
     void e_delete() {
-        boolean deleted = customerAddressService.delete(customerAddress.getCustomerID());
+        boolean deleted = bookingService.delete(booking.getBookingID());
         assertTrue(deleted);
         System.out.println("Deleted: " + (deleted ? "Yes" : "No"));
     }
 
     @Test
     void d_getAll() {
-        Set<CustomerAddress> customerAddresses = customerAddressService.getAll();
-        assertNotNull(customerAddresses);
-        System.out.println("All items: " + customerAddresses);
+        Set<Booking> bookings=bookingService.getAllBookings();
+        assertNotNull(bookings);
+        System.out.println("All items: " + bookings);
     }
 }

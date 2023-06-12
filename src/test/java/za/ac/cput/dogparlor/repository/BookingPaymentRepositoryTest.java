@@ -3,7 +3,9 @@ package za.ac.cput.dogparlor.repository;
 import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.dogparlor.domain.Booking;
 import za.ac.cput.dogparlor.domain.BookingPayment;
+import za.ac.cput.dogparlor.domain.CustomerAddress;
 import za.ac.cput.dogparlor.factory.BookingPaymentFactory;
 
 import java.util.Set;
@@ -32,12 +34,13 @@ public class BookingPaymentRepositoryTest {
 
     @Test
     void c_update() {
-        BookingPayment updated = new BookingPayment.Builder()
-                .setBookingID(4234)
-                .setPaymentID(2423)
+        BookingPayment updated = new BookingPayment.Builder().copy(bookingPayment)
+                .setBookingID(144)
                 .build();
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+
+        BookingPayment updatedBookingPayment = repository.update(updated);
+        assertNotNull(updatedBookingPayment);
+        System.out.println("Updated: " + updatedBookingPayment);
     }
 
     @Test

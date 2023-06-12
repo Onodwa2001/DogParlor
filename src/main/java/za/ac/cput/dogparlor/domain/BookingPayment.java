@@ -1,12 +1,13 @@
 package za.ac.cput.dogparlor.domain;
 public class BookingPayment {
-    private final int bookingID;
-    private final int paymentID;
+    private int bookingID;
+    private int paymentID;
 
     private BookingPayment(Builder builder){
         this.bookingID = builder.bookingID;
         this.paymentID= builder.paymentID;
     }
+
     public int getBookingID() {
         return bookingID;
     }
