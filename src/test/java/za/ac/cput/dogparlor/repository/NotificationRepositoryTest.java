@@ -13,8 +13,7 @@ import za.ac.cput.dogparlor.factory.NotificationFactory;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class NotificationRepositoryTest {
@@ -25,32 +24,31 @@ class NotificationRepositoryTest {
     @Test
     void a_create() {
         Notification createdNotificaton = repository.create(notification);
-        System.out.println(createdNotificaton);
         assertEquals(notification.getNotificationID(), createdNotificaton.getNotificationID());
+        System.out.println("Created: " + createdNotificaton);
     }
 
     @Test
     void b_read() {
         Notification retrievedNotification = repository.read(notification.getNotificationID());
-        System.out.println(retrievedNotification);
         assertNotNull(retrievedNotification);
+        System.out.println("Retrieved: " + retrievedNotification);
     }
 
     @Test
     void c_update() {
-        Notification updated = new Notification.Builder()
-                .setNotificationID(150)
+        Notification updated = new Notification.Builder().copy(notification)
                 .setPaymentID(251)
                 .build();
-        System.out.println(updated);
         assertNotNull(repository.update(updated));
+        System.out.println("Updated: " + updated);
     }
 
     @Test
     void e_delete() {
-        Notification deleted = repository.delete(notification);
-        System.out.println(deleted);
-        assertNotNull(deleted);
+        boolean deleted = repository.delete(notification.getNotificationID());
+        assertTrue(deleted);
+        System.out.println("Deleted: " + deleted);
     }
 
     @Test

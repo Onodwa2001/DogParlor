@@ -41,7 +41,7 @@ class FacilityLocationRepositoryTest {
     @Test
     void c_update() {
         FacilityLocation updated = new FacilityLocation.FacilityLocationBuilder().copy(facilityLocation)
-                .setFacilityID(5543)
+                .setLocationID(5543)
                 .build();
 
         FacilityLocation facilityLocation1 = repository.update(updated);

@@ -12,7 +12,7 @@ public class PaymentFactory {
         if (paymentID == 0)
             return null;
 
-        return new Payment.Builder()
+        return new Payment.PaymentBuilder()
                 .setPaymentID(paymentID)
                 .setAmount(amount)
                 .build();

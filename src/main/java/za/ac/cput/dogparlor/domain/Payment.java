@@ -31,7 +31,7 @@ public class Payment {
             return this;
         }
 
-        public PaymentBuilder setAmount(int amount){
+        public PaymentBuilder setAmount(double amount){
             this.amount = amount;
             return this;
         }

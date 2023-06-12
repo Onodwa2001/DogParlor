@@ -33,12 +33,12 @@ class PaymentRepositoryTest {
 
     @Test
     void c_update() {
-        Payment updated = new Payment.Builder().copy(payment)
+        Payment updated = new Payment.PaymentBuilder().copy(payment)
                 .setPaymentID(8839)
                 .setAmount(2331)
                 .build();
 
-        Payment updatedPayment = repository.update(null);
+        Payment updatedPayment = repository.update(updated);
         assertNotNull(updatedPayment);
         System.out.println("Updated: " + updatedPayment);
     }
