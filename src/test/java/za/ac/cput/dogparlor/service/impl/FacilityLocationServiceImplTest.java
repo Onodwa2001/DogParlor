@@ -1,6 +1,15 @@
 package za.ac.cput.dogparlor.service.impl;
 
+/*
+     FacilityLocationServiceImpl.java
+     Service for the FacilityLocation
+     Author: Onodwa Siyotula (220087016)
+     Date: 11 June 2023
+ */
+
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.dogparlor.domain.FacilityLocation;
 import za.ac.cput.dogparlor.factory.FacilityLocationFactory;
 import za.ac.cput.dogparlor.service.FacilityLocationService;
@@ -9,6 +18,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
 class FacilityLocationServiceImplTest {
 
     private FacilityLocationService facilityLocationService = FacilityLocationServiceImpl.getInstance();

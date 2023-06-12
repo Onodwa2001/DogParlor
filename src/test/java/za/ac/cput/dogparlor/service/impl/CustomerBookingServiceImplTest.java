@@ -1,6 +1,15 @@
 package za.ac.cput.dogparlor.service.impl;
 
+/*
+     CustomerBookingServiceImpl.java
+     Service for the CustomerBooking
+     Author: Onodwa Siyotula (220087016)
+     Date: 11 June 2023
+ */
+
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.dogparlor.domain.CustomerBooking;
 import za.ac.cput.dogparlor.factory.CustomerBookingFactory;
 import za.ac.cput.dogparlor.service.CustomerAddressService;
@@ -10,6 +19,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
 class CustomerBookingServiceImplTest {
 
     private CustomerBookingService customerBookingService = CustomerBookingServiceImpl.getInstance();
