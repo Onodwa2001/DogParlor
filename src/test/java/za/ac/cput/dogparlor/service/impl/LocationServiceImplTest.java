@@ -1,6 +1,15 @@
 package za.ac.cput.dogparlor.service.impl;
 
+/*
+     LocationServiceImpl.java
+     Service for the Location
+     Author: Onodwa Siyotula (220087016)
+     Date: 11 June 2023
+ */
+
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.dogparlor.domain.Location;
 import za.ac.cput.dogparlor.factory.LocationFactory;
 
@@ -8,6 +17,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
 class LocationServiceImplTest {
 
     private LocationServiceImpl locationService = null;

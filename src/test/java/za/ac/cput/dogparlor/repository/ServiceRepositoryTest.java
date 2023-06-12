@@ -8,13 +8,13 @@ package za.ac.cput.dogparlor.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.dogparlor.domain.CustomerService;
 import za.ac.cput.dogparlor.domain.Service;
 import za.ac.cput.dogparlor.factory.ServiceFactory;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class ServiceRepositoryTest {
@@ -37,7 +37,8 @@ class ServiceRepositoryTest {
 
     @Test
     void c_update() {
-        Service updated = new Service.Builder()
+
+        Service updated = new Service.Builder().copy(service)
                 .setServiceId(001)
                 .setPrice(234.45)
                 .setServiceType("Grooming")
@@ -45,15 +46,19 @@ class ServiceRepositoryTest {
                 .setServiceDescription("Trimming dog fur")
                 .setServicePackage("Gold")
                 .build();
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+
+        Service updatedService = repository.update(updated);
+        assertNotNull(updatedService);
+        System.out.println("Updated: " + updatedService);
+
+
     }
 
     @Test
     void e_delete() {
-        Service deleted = repository.delete(service);
+        boolean deleted = repository.delete(service.getServiceId());
         System.out.println(deleted);
-        assertNotNull(deleted);
+        assertTrue(deleted);
     }
 
     @Test
