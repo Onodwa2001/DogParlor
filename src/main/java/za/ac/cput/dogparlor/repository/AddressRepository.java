@@ -14,7 +14,7 @@ public class AddressRepository implements IAddressRepository {
     Set<Address> DB = null;
 
     private AddressRepository() {
-        DB = new HashSet<>();
+        DB = new HashSet<Address>();
     }
 
     public static AddressRepository getAddressRepository() {

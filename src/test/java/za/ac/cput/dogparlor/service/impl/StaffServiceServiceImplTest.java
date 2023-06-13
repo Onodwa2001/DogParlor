@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class StaffServiceServiceImplTest {
 
-    private StaffServiceServiceImpl StaffServiceService = null;
+    private static StaffServiceServiceImpl StaffServiceService = StaffServiceServiceImpl.getService();
     private StaffService StaffService = StaffServiceFactory.createStaffService(101, 255);
 
     @Test

@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StaffServiceImplTest {
 
-    private StaffServiceImpl StaffService = null;
+    private static StaffServiceImpl StaffService = StaffServiceImpl.getService();
     private Staff Staff = StaffFactory.createStaff(101, 30000,"Mobile grooming van counter",10,252);
 
     @Test
