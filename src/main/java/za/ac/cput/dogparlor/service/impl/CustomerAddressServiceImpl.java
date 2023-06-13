@@ -1,11 +1,13 @@
 package za.ac.cput.dogparlor.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.dogparlor.domain.CustomerAddress;
 import za.ac.cput.dogparlor.repository.CustomerAddressRepository;
 import za.ac.cput.dogparlor.service.CustomerAddressService;
 
 import java.util.Set;
 
+@Service
 public class CustomerAddressServiceImpl implements CustomerAddressService {
 
     private static CustomerAddressServiceImpl customerAddressService = null;
