@@ -19,8 +19,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class AddressServiceImplTest {
+    private static AddressServiceImpl addressService = AddressServiceImpl.getService();
 
-    private AddressServiceImpl addressService = null;
     private Address address = AddressFactory.createAddress(23, "65 Jordan Street", "Cape Town", "Western Cape","7785" , "South Africa");
 
     @Test

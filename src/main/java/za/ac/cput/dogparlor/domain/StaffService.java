@@ -36,6 +36,14 @@ public class StaffService {
     }
 
     @Override
+    public String toString() {
+        return "StaffService{" +
+                "staffID=" + staffID +
+                ", serviceID=" + serviceID +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(staffID);
     }
