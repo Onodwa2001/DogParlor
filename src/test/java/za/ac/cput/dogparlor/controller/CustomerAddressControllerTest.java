@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CustomerAddressControllerTest {
 
-    private CustomerAddress customerAddress = CustomerAddressFactory.createCustomerAddress(44234, 54823);
+    private CustomerAddress customerAddress = CustomerAddressFactory.createCustomerAddress(24234, 56823);
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8080/customer";

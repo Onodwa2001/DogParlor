@@ -9,7 +9,7 @@ import za.ac.cput.dogparlor.service.CustomerAddressService;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customer_address")
 public class CustomerAddressController {
 
     @Autowired
@@ -29,8 +29,7 @@ public class CustomerAddressController {
 
     @PostMapping("/update")
     public CustomerAddress update(@RequestBody CustomerAddress customerAddress) {
-        customerAddressService.delete(customerAddress.getCustomerID()); // delete old customer
-        return customerAddressService.create(customerAddress); // add new one
+        return customerAddressService.update(customerAddress);
     }
 
     @DeleteMapping("/delete/{id}")

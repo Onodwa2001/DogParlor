@@ -1,11 +1,13 @@
 package za.ac.cput.dogparlor.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.dogparlor.domain.Location;
 import za.ac.cput.dogparlor.repository.LocationRepository;
 import za.ac.cput.dogparlor.service.LocationService;
 
 import java.util.Set;
 
+@Service
 public class LocationServiceImpl implements LocationService {
 
     private static LocationServiceImpl locationService = null;
