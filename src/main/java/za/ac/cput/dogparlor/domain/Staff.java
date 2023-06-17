@@ -75,6 +75,7 @@ public class Staff extends Person {
         private int idRole;
         private int personID;
 
+        public Builder() {}
         public Builder setStaffID(int staffID) {
             this.staffID = staffID;
             return this;

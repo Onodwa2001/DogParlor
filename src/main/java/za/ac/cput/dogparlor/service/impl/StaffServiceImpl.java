@@ -6,28 +6,28 @@
 
 package za.ac.cput.dogparlor.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.dogparlor.domain.Staff;
+import za.ac.cput.dogparlor.repository.LocationRepository;
 import za.ac.cput.dogparlor.repository.StaffRepository;
 import za.ac.cput.dogparlor.service.StaffService;
 
 import java.util.Set;
-
+@Service
 public class StaffServiceImpl implements StaffService {
     private static StaffServiceImpl service = null;
 
     private StaffRepository repository = null;
 
-
-    private StaffServiceImpl(){
-        if (repository == null){
-            repository = StaffRepository.getStaffRepository();
-        }
+    public StaffServiceImpl() {
+        repository = StaffRepository.getStaffRepository();
     }
 
+
     public static StaffServiceImpl getService(){
-        if (service == null){
+        if (service == null)
             service = new StaffServiceImpl();
-        }
+
         return service;
     }
 

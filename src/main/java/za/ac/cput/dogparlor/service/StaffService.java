@@ -9,7 +9,7 @@ import za.ac.cput.dogparlor.domain.Staff;
 
 import java.util.Set;
 
-public interface StaffService {
+public interface StaffService extends IService<Staff, Integer>  {
 
     Staff create(Staff staff);
 
