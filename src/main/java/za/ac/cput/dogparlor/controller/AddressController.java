@@ -32,8 +32,7 @@ public class AddressController {
 
     @PostMapping("/update")
     public Address update(@RequestBody Address address) {
-        /*addressService.delete(address.getAddressID()); // delete old*/
-        return addressService.create(address); // add new one
+        return addressService.update(address); // add new one
     }
 
     @DeleteMapping("/delete/{id}")
