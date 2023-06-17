@@ -82,6 +82,7 @@ public class Address {
         private String zipCode;
         private String country;
 
+        public Builder() {}
         public Builder setAddressID(int addressID) {
             this.addressID = addressID;
             return this;
