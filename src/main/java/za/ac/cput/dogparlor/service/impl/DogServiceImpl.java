@@ -1,11 +1,12 @@
 package za.ac.cput.dogparlor.service.impl;
 
 import za.ac.cput.dogparlor.domain.Dog;
+import org.springframework.stereotype.Service;
 import za.ac.cput.dogparlor.repository.DogRepository;
 import za.ac.cput.dogparlor.service.DogService;
 
 import java.util.Set;
-
+@Service
 public class DogServiceImpl implements DogService {
 
     private static DogServiceImpl dogService = null;
