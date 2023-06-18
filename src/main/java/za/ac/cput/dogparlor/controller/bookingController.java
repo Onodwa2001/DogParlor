@@ -8,8 +8,6 @@ import za.ac.cput.dogparlor.service.BookingService;
 
 import java.util.Set;
 
-class BookingController {
-}
 @RestController
 @RequestMapping("/booking")
 public class bookingController {
@@ -20,7 +18,7 @@ public class bookingController {
     @PostMapping("/create")
     public Booking create(@RequestBody Booking booking) {
         Booking createdBooking = BookingFactory.createBooking(booking.getBookingID(), booking.getTime(),
-                booking.getDate(), booking.getTime());
+                booking.getDate(), booking.getTime(), booking.getTotal());
 
         return service.create(createdBooking);
     }

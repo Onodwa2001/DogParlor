@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BookingRepositoryTest {
 
     private static final BookingRepository repository = BookingRepository.getRepository();
-    private static final Booking booking = BookingFactory.createBooking(4234 , new Date() , new Time(new Date().getTime()).toString(),"Wash , Groom and Dip");
+    private static final Booking booking = BookingFactory.createBooking(4234 , new Date().toString() , new Time(new Date().getTime()).toString(),"Wash , Groom and Dip", 2500);
 
     @Test
     void a_create() {

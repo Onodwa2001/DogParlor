@@ -2,6 +2,7 @@ package za.ac.cput.dogparlor.service.impl;
 
 
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.dogparlor.domain.Booking;
 import za.ac.cput.dogparlor.domain.CustomerAddress;
 import za.ac.cput.dogparlor.repository.BookingRepository;
@@ -11,10 +12,12 @@ import za.ac.cput.dogparlor.service.CustomerAddressService;
 
 import java.util.Set;
 
+@Service
 public class BookingServiceImpl implements BookingService {
 
     private static BookingServiceImpl bookingService = null;
     private BookingRepository bookingRepository = null;
+
 
     private BookingServiceImpl() {
         bookingRepository = bookingRepository.getRepository();

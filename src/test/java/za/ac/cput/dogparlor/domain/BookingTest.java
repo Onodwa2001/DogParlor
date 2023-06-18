@@ -20,7 +20,7 @@ class BookingTest {
 
         Booking booking = new Booking.BookingBuilder()
                 .setBookingID(251)
-                .setDate(new Date())
+                .setDate(new Date().toString())
                 .setTime(new Time(new Date().getTime()).toString())
                 .setService("Wash , Groom and Dip")
                 .setTotal(2500)
@@ -35,7 +35,7 @@ class BookingTest {
     void testObjectEquality() {
         Booking booking = new Booking.BookingBuilder()
                 .setBookingID(251)
-                .setDate(new Date())
+                .setDate(new Date().toString())
                 .setTime(new Time(new Date().getTime()).toString())
                 .setService("Wash , Groom and Dip")
                 .setTotal(250)
@@ -43,7 +43,7 @@ class BookingTest {
 
         Booking booking2 = new Booking.BookingBuilder()
                 .setBookingID(251)
-                .setDate(new Date())
+                .setDate(new Date().toString())
                 .setTime(new Time(new Date().getTime()).toString())
                 .setService("Wash,Groom and Dip")
                 .setTotal(250)
