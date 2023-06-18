@@ -5,12 +5,11 @@
  */
 package za.ac.cput.dogparlor.domain;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Booking {
     private int bookingID;
-    private Date date;
+    private String date;
     private String time;
     private String service;
     private float total;
@@ -29,7 +28,7 @@ public class Booking {
     public int getBookingID (){
         return bookingID;
     }
-    public Date getDate (){
+    public String getDate (){
         return date;
     }
     public String getTime (){
@@ -56,7 +55,7 @@ public class Booking {
 
     public static class BookingBuilder {
         private int bookingID;
-        private Date date;
+        private String date;
         private String time;
         private String service;
         private float total;
@@ -67,7 +66,7 @@ public class Booking {
             this.bookingID = bookingID ;
             return this;
         }
-        public BookingBuilder setDate (Date date){
+        public BookingBuilder setDate (String date){
             this.date = date;
             return this;
         }

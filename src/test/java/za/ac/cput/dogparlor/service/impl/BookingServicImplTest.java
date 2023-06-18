@@ -17,7 +17,7 @@ class BookingServiceImplTest {
 
     private BookingServiceImpl bookingService = null;
 
-    private Booking booking = BookingFactory.createBooking(6789, new Date(), "15:20", "wash", 365);
+    private Booking booking = BookingFactory.createBooking(6789, new Date(), "15:20", "wash");
 
     @Test
     void a_create() {

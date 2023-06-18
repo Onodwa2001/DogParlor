@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.dogparlor.domain.Booking;
-import za.ac.cput.dogparlor.domain.CustomerAddress;
 import za.ac.cput.dogparlor.factory.BookingFactory;
 
 import java.sql.Time;
@@ -17,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BookingRepositoryTest {
 
     private static final BookingRepository repository = BookingRepository.getRepository();
-    private static final Booking booking = BookingFactory.createBooking(4234 , new Date() , new Time(new Date().getTime()).toString(),"Wash , Groom and Dip",2500);
+    private static final Booking booking = BookingFactory.createBooking(4234 , new Date() , new Time(new Date().getTime()).toString(),"Wash , Groom and Dip");
 
     @Test
     void a_create() {

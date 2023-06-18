@@ -8,10 +8,8 @@ package za.ac.cput.dogparlor.factory;
 import za.ac.cput.dogparlor.domain.Booking;
 import za.ac.cput.dogparlor.util.Helper;
 
-import java.util.Date;
-
 public class BookingFactory {
-    public static Booking createBooking(int bookingID, Date date , String time, String service , float total) {
+    public static Booking createBooking(int bookingID, String date , String time, String service) {
         if (bookingID == 0)
             return null;
 
@@ -19,6 +17,7 @@ public class BookingFactory {
 
             return null;
 
+        float total = 0;
         return new Booking.BookingBuilder()
                 .setBookingID(bookingID)
                 .setDate(date)
