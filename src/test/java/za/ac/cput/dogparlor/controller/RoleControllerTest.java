@@ -30,7 +30,7 @@ class RoleControllerTest {
     private static Role role;
 
     @Autowired
-    private TestRestTemplate template; // allows you to execute your methods and controller.
+    private TestRestTemplate template; 
     private String baseURL;
 
 
