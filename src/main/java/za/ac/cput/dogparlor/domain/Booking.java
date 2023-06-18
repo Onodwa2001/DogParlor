@@ -83,6 +83,16 @@ public class Booking {
             this.total = total;
             return this;
         }
+
+        public BookingBuilder copy(Booking booking) {
+            this.bookingID = booking.bookingID;
+            this.date = booking.date;
+            this.time = booking.time;
+            this.total = booking.total;
+            this.service = booking.service;
+            return this;
+        }
+
         public Booking build(){
             return new Booking(this);
         }

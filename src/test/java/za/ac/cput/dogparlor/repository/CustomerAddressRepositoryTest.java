@@ -41,20 +41,20 @@ class CustomerAddressRepositoryTest {
 
     @Test
     void c_update() {
-        CustomerAddress updated = new CustomerAddress.Builder()
-                        .setCustomerID(2322)
+        CustomerAddress updated = new CustomerAddress.Builder().copy(customerAddress)
                         .setAddressID(5564)
                         .build();
 
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+        CustomerAddress updatedCustAddress = repository.update(updated);
+        assertNotNull(updatedCustAddress);
+        System.out.println("Updated: " + updatedCustAddress);
     }
 
     @Test
     void e_delete() {
-        CustomerAddress deleted = repository.delete(customerAddress);
+        boolean deleted = repository.delete(customerAddress.getCustomerID());
         System.out.println(deleted);
-        assertNotNull(deleted);
+        assertTrue(deleted);
     }
 
     @Test

@@ -3,6 +3,7 @@ package za.ac.cput.dogparlor.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.dogparlor.domain.BookingPayment;
 import za.ac.cput.dogparlor.domain.Payment;
 import za.ac.cput.dogparlor.factory.PaymentFactory;
 
@@ -32,12 +33,14 @@ class PaymentRepositoryTest {
 
     @Test
     void c_update() {
-        Payment updated = new Payment.Builder()
+        Payment updated = new Payment.PaymentBuilder().copy(payment)
                 .setPaymentID(8839)
                 .setAmount(2331)
                 .build();
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+
+        Payment updatedPayment = repository.update(updated);
+        assertNotNull(updatedPayment);
+        System.out.println("Updated: " + updatedPayment);
     }
 
     @Test

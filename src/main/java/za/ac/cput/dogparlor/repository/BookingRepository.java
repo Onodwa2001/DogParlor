@@ -2,9 +2,9 @@ package za.ac.cput.dogparlor.repository;
 
 import za.ac.cput.dogparlor.domain.Booking;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.DoubleBinaryOperator;
 
 public class BookingRepository implements IBookingRepository {
     private static BookingRepository repository = null;
@@ -43,15 +43,27 @@ public class BookingRepository implements IBookingRepository {
     @Override
     public Booking update(Booking booking){
         Booking oldBooking = read(booking.getBookingID());
+        if (oldBooking == null)
+            return null;
 
-        if (oldBooking != null) {
-            bookingDB.remove(oldBooking);
-            bookingDB.add(booking);
-            return booking;
-        }
+        boolean successfulDelete = bookingDB.remove(oldBooking);
+        if (!successfulDelete)
+            return null;
+        boolean successfulAdd = bookingDB.add(booking);
+        if (!successfulAdd)
+            return null;
 
-        return null;
+        return booking;
+
+
+
     }
+
+    @Override
+    public boolean delete(Integer integer) {
+        return false;
+    }
+
 
     @Override
     public Booking delete(Booking booking){

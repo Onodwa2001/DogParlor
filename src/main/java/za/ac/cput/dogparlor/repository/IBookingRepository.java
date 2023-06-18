@@ -6,6 +6,8 @@ import java.util.Set;
 
 public interface IBookingRepository extends IRepository<Booking, Integer> {
 
+    Booking delete(Booking booking);
+
     Set<Booking> getAllBookings();
 
 }

@@ -1,64 +1,42 @@
-/* Payment.java
-  Entity for the Payment
-  Author: Uthimna Sisipho Rubushe (221044329)
-  Date:08 April 2023
- */
 package za.ac.cput.dogparlor.domain;
-
-import java.util.Objects;
-
 public class Payment {
     private int paymentID;
     private double amount;
 
-    private Payment(){};
+    private Payment() {}
 
-    private Payment(Builder builder){
+    private Payment (PaymentBuilder builder){
         this.paymentID = builder.paymentID;
         this.amount = builder.amount;
     }
-    public int getPaymentID() {
+
+    public int getPaymentID(){
         return paymentID;
     }
 
-    public double getAmount() {
+    public double getAmount(){
         return amount;
     }
 
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Payment that = (Payment) o;
-        return paymentID == that.paymentID;
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(paymentID);
-    }
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "paymentID=" + paymentID +
-                ", amount=" + amount +
-                '}';
-    }
 
-    public static class Builder{
+    public static class PaymentBuilder{
         private int paymentID;
         private double amount;
+        
+        public PaymentBuilder() {}
 
-        public Builder setPaymentID(int paymentID) {
+        public PaymentBuilder setPaymentID (int paymentID){
             this.paymentID = paymentID;
             return this;
         }
 
-        public Builder setAmount(double amount) {
+        public PaymentBuilder setAmount(double amount){
             this.amount = amount;
             return this;
         }
 
-        public Builder copy(Payment payment){
+        public PaymentBuilder copy(Payment payment) {
             this.paymentID = payment.paymentID;
             this.amount = payment.amount;
             return this;
@@ -67,6 +45,6 @@ public class Payment {
         public Payment build(){
             return new Payment(this);
         }
-
     }
 }
+

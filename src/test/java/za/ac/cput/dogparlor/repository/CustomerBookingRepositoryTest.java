@@ -42,18 +42,18 @@ class CustomerBookingRepositoryTest {
 
     @Test
     void c_update() {
-        CustomerBooking updated = new CustomerBooking.Builder()
-                .setCustomerID(2322)
+        CustomerBooking updated = new CustomerBooking.Builder().copy(customerBooking)
                 .setBookingID(5564)
                 .build();
 
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+        CustomerBooking customerBooking1 = repository.update(updated);
+        assertNotNull(customerBooking1);
+        System.out.println("Updated: " + customerBooking1);
     }
 
     @Test
     void e_delete() {
-        CustomerBooking deleted = repository.delete(customerBooking);
+        boolean deleted = repository.delete(customerBooking.getCustomerID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }

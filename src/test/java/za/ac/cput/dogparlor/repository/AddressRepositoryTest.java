@@ -37,7 +37,8 @@ class AddressRepositoryTest {
 
     @Test
     void c_update() {
-        Address updated = new Address.Builder().setAddressID(23)
+        Address updated = new Address.Builder().copy(address)
+                .setAddressID(25)
                 .setStreetAddress("65 Soccer Street")
                 .setCity("Cape Town")
                 .setState("Western Cape")
@@ -50,7 +51,7 @@ class AddressRepositoryTest {
 
     @Test
     void e_delete() {
-        Address deleted = repository.delete(address);
+        boolean deleted = repository.delete(address.getAddressID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }

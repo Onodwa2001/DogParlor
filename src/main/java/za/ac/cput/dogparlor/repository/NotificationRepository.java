@@ -49,23 +49,29 @@ public class NotificationRepository implements INotificationRepository{
     public Notification update(Notification notification) {
         Notification oldNotification = read(notification.getNotificationID());
 
-        if (oldNotification != null) {
-            DB.remove(oldNotification);
-            DB.add(notification);
-            return notification;
-        }
-        return null;
+        if (oldNotification == null)
+            return null;
+
+        boolean successfulDelete = DB.remove(oldNotification);
+        if (!successfulDelete)
+            return null;
+
+        boolean successfulAdd = DB.add(notification);
+        if (!successfulAdd)
+            return null;
+
+        return notification;
     }
 
     @Override
-    public Notification delete(Notification notification) {
-        Notification oldNotification = read(notification.getNotificationID());
+    public boolean delete(Integer id) {
+        Notification oldNotification = read(id);
 
-        if (oldNotification != null) {
-            DB.remove(oldNotification);
-            return oldNotification;
-        }
-        return null;
+        if (oldNotification == null)
+            return false;
+
+        DB.remove(oldNotification);
+        return true;
     }
 
     @Override

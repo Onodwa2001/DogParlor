@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.dogparlor.domain.Booking;
+import za.ac.cput.dogparlor.domain.CustomerAddress;
 import za.ac.cput.dogparlor.factory.BookingFactory;
 
 import java.sql.Time;
@@ -34,11 +35,8 @@ public class BookingRepositoryTest {
 
     @Test
     void c_update() {
-        Booking updated = new Booking.BookingBuilder()
-                .setBookingID(4234)
-                .setDate(new Date())
-                .setTime(new Time(new Date().getTime()).toString())
-                .setService("Grooming")
+       Booking updated = new Booking.BookingBuilder().copy(booking)
+                .setBookingID(122)
                 .build();
         System.out.println(updated);
         assertNotNull(repository.update(updated));

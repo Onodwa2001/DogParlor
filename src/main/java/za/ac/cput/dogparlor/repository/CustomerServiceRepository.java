@@ -6,6 +6,7 @@
 package za.ac.cput.dogparlor.repository;
 
 import za.ac.cput.dogparlor.domain.CustomerService;
+import za.ac.cput.dogparlor.domain.Facility;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -48,23 +49,29 @@ public class CustomerServiceRepository implements ICustomerServiceRepository{
     public CustomerService update(CustomerService customerService) {
         CustomerService oldCustomerService = read(customerService.getCustomerId());
 
-        if(oldCustomerService != null) {
-            DB.remove(oldCustomerService);
-            DB.add(customerService);
-            return customerService;
-        }
-        return null;
+        if (oldCustomerService == null)
+            return null;
+
+        boolean successfulDelete = DB.remove(oldCustomerService);
+        if (!successfulDelete)
+            return null;
+
+        boolean successfulAdd = DB.add(customerService);
+        if (!successfulAdd)
+            return null;
+
+        return customerService;
     }
 
     @Override
-    public CustomerService delete(CustomerService customerService) {
-        CustomerService oldCustomerService = read(customerService.getCustomerId());
+    public boolean delete(Integer integer) {
+        CustomerService foundCustomerService = read(integer);
 
-        if (oldCustomerService != null) {
-            DB.remove(oldCustomerService);
-            return oldCustomerService;
-        }
-        return null;
+        if (foundCustomerService == null)
+            return false;
+
+        return DB.remove(foundCustomerService);
+
     }
     @Override
     public Set<CustomerService> getAllCustomerServices() {

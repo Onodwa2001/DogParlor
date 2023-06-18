@@ -40,19 +40,19 @@ class LocationRepositoryTest {
 
     @Test
     void c_update() {
-        Location updated = new Location.LocationBuilder()
-                .setLocationID(2341)
-                .setName("The Hive")
+        Location updated = new Location.LocationBuilder().copy(location)
                 .setLongitude("-27.3831")
                 .setLatitude("11.2332")
                 .build();
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+
+        Location location1 = repository.update(updated);
+        assertNotNull(location1);
+        System.out.println("Updated: " + location1);
     }
 
     @Test
     void e_delete() {
-        Location deleted = repository.delete(location);
+        boolean deleted = repository.delete(location.getLocationID());
         System.out.println(deleted);
         assertNotNull(deleted);
     }

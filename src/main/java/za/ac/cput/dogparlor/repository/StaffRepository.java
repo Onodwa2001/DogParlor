@@ -1,7 +1,7 @@
 /* StaffRepository.java
   Repository for Staff entity
   Author: Byron Young (218155077)
-  Date:07 April 2023
+  Date:10 June 2023
  */
 package za.ac.cput.dogparlor.repository;
 
@@ -48,25 +48,30 @@ public class StaffRepository implements IStaffRepository {
     public Staff update(Staff staff) {
         Staff oldStaff = read(staff.getStaffID());
 
-        if (oldStaff != null) {
-            DB.remove(oldStaff);
-            DB.add(staff);
-            return staff;
+        if (oldStaff == null) {
+            return null;
         }
 
-        return null;
+        boolean successDelete = DB .remove(oldStaff);
+        if (!successDelete)
+            return null;
+
+        boolean successAdd = DB.add(staff);
+        if (!successAdd)
+            return null;
+
+        return staff;
     }
 
     @Override
-    public Staff delete(Staff staff) {
-        Staff oldStaff = read(staff.getStaffID());
+    public boolean delete(Integer id) {
+        Staff oldStaff = read(id);
 
-        if (oldStaff != null) {
-            DB.remove(oldStaff);
-            return oldStaff;
+        if (oldStaff == null) {
+            return false;
         }
 
-        return null;
+        return DB.remove(oldStaff);
     }
 
     @Override

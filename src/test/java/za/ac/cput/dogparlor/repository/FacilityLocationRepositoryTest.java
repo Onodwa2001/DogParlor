@@ -40,21 +40,20 @@ class FacilityLocationRepositoryTest {
 
     @Test
     void c_update() {
-        FacilityLocation updated = new FacilityLocation.FacilityLocationBuilder()
-                .setLocationID(1234)
-                .setFacilityID(5543)
+        FacilityLocation updated = new FacilityLocation.FacilityLocationBuilder().copy(facilityLocation)
+                .setLocationID(5543)
                 .build();
 
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+        FacilityLocation facilityLocation1 = repository.update(updated);
+        assertNotNull(facilityLocation1);
+        System.out.println("Updated: " + facilityLocation1);
     }
 
     @Test
     void e_delete() {
-        FacilityLocation deleted = repository.delete(facilityLocation);
+        boolean deleted = repository.delete(facilityLocation.getFacilityID());
         System.out.println(deleted);
         assertNotNull(deleted);
-
     }
 
     @Test

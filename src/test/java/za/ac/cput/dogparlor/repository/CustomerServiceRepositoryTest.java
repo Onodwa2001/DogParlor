@@ -8,13 +8,13 @@ package za.ac.cput.dogparlor.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.dogparlor.domain.CustomerAddress;
 import za.ac.cput.dogparlor.domain.CustomerService;
 import za.ac.cput.dogparlor.factory.CustomerServiceFactory;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class CustomerServiceRepositoryTest {
@@ -38,19 +38,21 @@ class CustomerServiceRepositoryTest {
 
     @Test
     void c_update() {
-        CustomerService updated = new CustomerService.Builder()
+        CustomerService updated = new CustomerService.Builder().copy(customerService)
                 .setCustomerId(001)
                 .setServiceId(002)
                 .build();
-        System.out.println(updated);
-        assertNotNull(repository.update(updated));
+
+        CustomerService updatedCustomerService = repository.update(updated);
+        assertNotNull(updatedCustomerService);
+        System.out.println("Updated: " + updatedCustomerService);
     }
 
     @Test
     void e_delete() {
-        CustomerService deleted = repository.delete(customerService);
+        boolean deleted = repository.delete(customerService.getCustomerId());
         System.out.println(deleted);
-        assertNotNull(deleted);
+        assertTrue(deleted);
     }
 
     @Test

@@ -1,7 +1,7 @@
 /* AddressRepository.java
   Repository for Address entity
   Author: Byron Young (218155077)
-  Date:07 April 2023
+  Date:10 June 2023
  */
 package za.ac.cput.dogparlor.repository;
 import za.ac.cput.dogparlor.domain.Address;
@@ -47,25 +47,30 @@ public class AddressRepository implements IAddressRepository {
     public Address update(Address address) {
         Address oldAddress= read(address.getAddressID());
 
-        if (oldAddress != null) {
-            DB.remove(oldAddress);
-            DB.add(address);
-            return address;
+        if (oldAddress == null) {
+            return null;
         }
 
-        return null;
+        boolean successDelete = DB .remove(oldAddress);
+        if (!successDelete)
+            return null;
+
+        boolean successAdd = DB.add(address);
+        if (!successAdd)
+            return null;
+
+        return address;
     }
 
     @Override
-    public Address delete(Address address) {
-        Address oldAddress = read(address.getAddressID());
+    public boolean delete(Integer id) {
+        Address oldAddress = read(id);
 
-        if (oldAddress != null) {
-            DB.remove(oldAddress);
-            return oldAddress;
+        if (oldAddress == null) {
+            return false;
         }
 
-        return null;
+        return DB.remove(oldAddress);
     }
 
     @Override
