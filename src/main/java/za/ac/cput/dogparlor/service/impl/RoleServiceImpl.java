@@ -5,12 +5,15 @@
  */
 package za.ac.cput.dogparlor.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.dogparlor.domain.Role;
 import za.ac.cput.dogparlor.repository.RoleRepository;
 import za.ac.cput.dogparlor.service.RoleService;
 
 import java.util.Set;
 
+
+@Service
 public class RoleServiceImpl implements RoleService {
 
     private final RoleRepository repo;
